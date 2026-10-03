@@ -240,11 +240,14 @@ a { color: inherit; }
 .sensor-card--green { --sensor-color: #6f9d63; --sensor-bg: #e8f0dd; --sensor-line: #d0e0bf; }
 .sensor-card--amber { --sensor-color: #bd8950; --sensor-bg: #f6eddb; --sensor-line: #ead9b8; }
 .sensor-card--blue { --sensor-color: #5d95a0; --sensor-bg: #e2eef0; --sensor-line: #c5e0e4; }
-.sensor-card-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; }
-.sensor-icon { display: grid; width: 45px; height: 45px; place-items: center; border: 1px solid var(--sensor-line); border-radius: 13px; background: var(--sensor-bg); color: var(--sensor-color); }
-.sensor-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
-.sensor-index { color: #a1aca0; font-family: var(--font-mono); font-size: 8px; letter-spacing: .12em; }
-.sensor-card h3 { position: relative; z-index: 1; margin: 19px 0 16px; color: #26372c; font-size: clamp(20px, 1.85vw, 25px); font-weight: 610; letter-spacing: -.055em; line-height: 1.12; }
+.sensor-card-head { position: relative; z-index: 1; display: grid; grid-template-columns: 84px minmax(0, 1fr); align-items: center; gap: 13px; min-height: 80px; }
+.sensor-photo-frame { position: relative; display: grid; width: 84px; height: 76px; flex: 0 0 auto; place-items: center; overflow: hidden; border: 1px solid var(--sensor-line); border-radius: 13px; background: #f7f8f1; }
+.sensor-product-photo { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.sensor-photo-label { position: absolute; right: 4px; bottom: 4px; padding: 3px 4px; border: 1px solid rgba(40,65,45,.08); border-radius: 4px; background: rgba(250,251,246,.88); color: #778676; font-family: var(--font-mono); font-size: 5.5px; letter-spacing: .06em; }
+.sensor-heading-copy { display: grid; min-width: 0; align-content: center; gap: 4px; }
+.sensor-index { color: #a1aca0; font-family: var(--font-mono); font-size: 7px; letter-spacing: .12em; }
+.sensor-card h3 { position: relative; z-index: 1; margin: 0; color: #26372c; font-size: clamp(18px, 1.65vw, 22px); font-weight: 650; letter-spacing: -.055em; line-height: 1.06; }
+.sensor-model { margin: 1px 0 0; color: #748276; font-size: 8px; font-weight: 580; line-height: 1.3; }
 .measure-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding: 12px 0 13px; border-top: 1px solid rgba(31,59,37,.1); border-bottom: 1px solid rgba(31,59,37,.1); }
 .measure-row > span { padding-top: 3px; color: #879589; font-family: var(--font-mono); font-size: 8px; font-weight: 700; letter-spacing: .12em; }
 .measure-row strong { color: #34483a; font-size: 12px; font-weight: 650; line-height: 1.4; text-align: right; }
@@ -535,7 +538,10 @@ a { color: inherit; }
   .section-deck { max-width: 480px; margin: 0; font-size: 12px; }
   .sensor-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 22px; }
   .sensor-card { min-height: 0; padding: 19px; }
-  .sensor-card h3 { margin: 14px 0 13px; font-size: 22px; }
+  .sensor-card-head { grid-template-columns: 76px minmax(0, 1fr); gap: 11px; }
+  .sensor-photo-frame { width: 76px; height: 72px; }
+  .sensor-card h3 { margin: 0; font-size: 19px; }
+  .sensor-model { font-size: 8px; }
   .sensor-card > p { font-size: 12px; }
   .example-row { font-size: 10px; }
   .calibration-note { font-size: 9px; }
@@ -621,7 +627,8 @@ a { color: inherit; }
   .cover-edition { margin-top: 18px; }.cover-course { margin-top: 18px; }.cover-team { margin-top: 13px; }
   .cover-career { margin-top: 11px; }
   .sensor-grid { margin-top: 22px; }.sensor-card { min-height: 315px; padding: 17px; }
-  .sensor-card h3 { margin: 14px 0 12px; }
+  .sensor-card-head { grid-template-columns: 78px minmax(0, 1fr); gap: 11px; }.sensor-photo-frame { width: 78px; height: 70px; }
+  .sensor-card h3 { margin: 0; font-size: 19px; }
   .logic-layout { margin-top: 20px; }.flow-panel { min-height: 326px; }.flow-example { margin-top: 25px; }
   .architecture { margin-top: 27px; }.architecture-node { min-height: 172px; }
   .benefit-grid { margin-top: 25px; }.benefit-card { min-height: 112px; padding: 15px; }

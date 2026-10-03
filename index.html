@@ -95,8 +95,10 @@
 
           <div class="sensor-grid">
             <article class="sensor-card sensor-card--green">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5C18 14 11 21 11 29a13 13 0 0 0 26 0c0-8-7-15-13-24Z"/><path d="M17 30c0 4 3 7 7 7M7 43h34M10 39l-3 4m31-4 3 4"/></svg></span><span class="sensor-index">SENSOR 01</span></div>
-              <h3>Humedad del suelo</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-humedad-suelo.jpg" alt="Sensor capacitivo Grove para humedad del suelo; ilustración referencial, no es una foto oficial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 01</span><h3>Humedad del suelo</h3><p class="sensor-model">Grove Capacitive Moisture Sensor (Corrosion Resistant) · Seeed Studio</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Agua en el sustrato<br><em>lectura relativa</em></strong></div>
               <p><b>¿Para qué?</b> Estimar si la zona de raíces se está secando y orientar el riego.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Lectura baja → revisar si hace falta regar.</span></div>
@@ -105,8 +107,10 @@
             </article>
 
             <article class="sensor-card sensor-card--amber">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6v6m0 24v6M6 24h6m24 0h6M11 11l4 4m18 18 4 4m0-26-4 4m-18 18-4 4"/><circle cx="24" cy="24" r="11"/><path d="M20 27c1.6 1.5 6.4 1.5 8 0m-7-7h.01M27 20h.01"/></svg></span><span class="sensor-index">SENSOR 02</span></div>
-              <h3>pH del suelo</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-ph.jpg" alt="Sonda de pH de vidrio y placa acondicionadora Gravity; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 02</span><h3>pH del suelo</h3><p class="sensor-model">Gravity Analog pH Sensor V2 · SEN0161-V2</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Acidez / alcalinidad<br><em>pH de una muestra líquida</em></strong></div>
               <p><b>¿Para qué?</b> Orientar la evaluación de la disponibilidad de nutrientes; no indica por sí solo la fertilidad.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Medir un extracto suelo‑agua antes de ajustar el sustrato.</span></div>
@@ -115,12 +119,14 @@
             </article>
 
             <article class="sensor-card sensor-card--blue">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5v7m0 24v7M12 12l5 5m14 14 5 5m0-24-5 5m-14 14-5 5"/><circle cx="24" cy="25" r="10"/><path d="M24 20v6l4 3M9 43h30"/></svg></span><span class="sensor-index">SENSOR 03</span></div>
-              <h3>Temperatura del suelo</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-temperatura.jpg" alt="Sonda encapsulada tipo DS18B20 con cable; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 03</span><h3>Temperatura del suelo</h3><p class="sensor-model">DS18B20 · sonda encapsulada</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Temperatura<br><em>°C en zona radicular</em></strong></div>
               <p><b>¿Para qué?</b> Detectar cambios térmicos que pueden afectar el entorno de las raíces.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar una subida inusual y generar una alerta.</span></div>
-              <div class="sensor-card-foot"><span>DS18B20 encapsulado · 1‑Wire</span><a class="citation-link" href="#ref-ds18b20" data-reference="ref-ds18b20" aria-label="Ver fuente: Analog Devices">(Analog Devices, s. f.)</a></div>
+              <div class="sensor-card-foot"><span>Digital · bus 1‑Wire</span><a class="citation-link" href="#ref-ds18b20" data-reference="ref-ds18b20" aria-label="Ver fuente: Analog Devices">(Analog Devices, s. f.)</a></div>
               <div class="calibration-note"><span>i</span> Sensor digital: Arduino recibe el dato por un bus de un cable.</div>
             </article>
           </div>
@@ -138,28 +144,34 @@
 
           <div class="sensor-grid">
             <article class="sensor-card sensor-card--blue">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 27a14 14 0 0 1 27-4 9 9 0 0 1-1 18H14a7 7 0 0 1-4-14Z"/><path d="m18 30-2 5m10-5-2 5m10-5-2 5"/></svg></span><span class="sensor-index">SENSOR 04</span></div>
-              <h3>Humedad ambiental</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-humedad-ambiental.jpg" alt="Sensor DHT22 blanco con ranuras de ventilación; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 04</span><h3>Humedad ambiental</h3><p class="sensor-model">DHT22 / AM2302</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Humedad relativa<br><em>% HR y temperatura del aire</em></strong></div>
               <p><b>¿Para qué?</b> Entender el microclima y vigilar periodos de humedad alta.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Aviso para revisar ventilación en un invernadero.</span></div>
-              <div class="sensor-card-foot"><span>DHT22 · pin digital</span><a class="citation-link" href="#ref-adafruit-dht" data-reference="ref-adafruit-dht" aria-label="Ver fuente: Adafruit">(Adafruit, 2024b)</a></div>
+              <div class="sensor-card-foot"><span>Salida · un pin digital</span><a class="citation-link" href="#ref-adafruit-dht" data-reference="ref-adafruit-dht" aria-label="Ver fuente: Adafruit">(Adafruit, 2024b)</a></div>
               <div class="calibration-note"><span>i</span> Colócalo a la sombra, protegido del agua directa.</div>
             </article>
 
             <article class="sensor-card sensor-card--amber">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="8"/><path d="M24 4v7m0 26v7M4 24h7m26 0h7M10 10l5 5m18 18 5 5m0-28-5 5m-18 18-5 5"/><path d="m18 26 4-4 4 3 4-6"/></svg></span><span class="sensor-index">SENSOR 05</span></div>
-              <h3>Luminosidad</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-luminosidad.jpg" alt="Módulo BH1750 en una pequeña placa I²C; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 05</span><h3>Luminosidad</h3><p class="sensor-model">BH1750 · breakout I²C</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Iluminancia<br><em>lux (lx)</em></strong></div>
               <p><b>¿Para qué?</b> Comparar la luz disponible y detectar zonas con sombra.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Comparar lecturas entre mañana y mediodía.</span></div>
-              <div class="sensor-card-foot"><span>BH1750 · I²C digital</span><a class="citation-link" href="#ref-adafruit-bh1750" data-reference="ref-adafruit-bh1750" aria-label="Ver fuente: Adafruit">(Adafruit, 2024a)</a></div>
+              <div class="sensor-card-foot"><span>Interfaz digital · I²C</span><a class="citation-link" href="#ref-adafruit-bh1750" data-reference="ref-adafruit-bh1750" aria-label="Ver fuente: Adafruit">(Adafruit, 2024a)</a></div>
               <div class="calibration-note"><span>!</span> Lux orienta; para luz fotosintética se mide PAR/PPFD.</div>
             </article>
 
             <article class="sensor-card sensor-card--green">
-              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6c-5 8-11 14-11 22a11 11 0 0 0 22 0c0-8-6-14-11-22Z"/><path d="M8 40h32M12 36l-4 4m28-4 4 4m-21-9 2 2m9-2-2 2"/></svg></span><span class="sensor-index">SENSOR 06</span></div>
-              <h3>Lluvia / mojado</h3>
+              <div class="sensor-card-head">
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-lluvia.jpg" alt="Placa de detección de gotas conectada a un módulo; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 06</span><h3>Lluvia / mojado</h3><p class="sensor-model">Grove Water Sensor V1.1 · Seeed Studio</p></div>
+              </div>
               <div class="measure-row"><span>VARIABLE</span><strong>Presencia de gotas<br><em>seco / mojado</em></strong></div>
               <p><b>¿Para qué?</b> Detectar lluvia o superficie húmeda en el cultivo.</p>
               <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar lluvia y reconsiderar el riego.</span></div>

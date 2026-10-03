@@ -22,6 +22,9 @@ index.html       Estructura y contenido de las 9 diapositivas
 styles.css       Diseño responsive, componentes y animaciones
 app.js           Navegación, controles y simulador
 img/hero-farm.svg Ilustración vectorial original de portada
+img/sensor-*.jpg Imágenes referenciales para los seis sensores
 ```
+
+Las imágenes de sensores son ilustraciones referenciales generadas para esta presentación, no fotografías oficiales ni réplicas exactas de cada producto. Los modelos aparecen escritos en las fichas para poder identificarlos y buscarlos.
 
 No se utilizan frameworks, bibliotecas ni recursos externos para renderizar la presentación. Las fuentes bibliográficas y sus enlaces están reunidos en la última diapositiva.
