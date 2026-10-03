@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+  <title id="title">Fotoresistencia LDR de 5 mm</title>
+  <desc id="desc">Ilustración vectorial de una fotoresistencia redonda con cara amarilla, pista fotosensible en zigzag y dos terminales.</desc>
+  <rect width="360" height="360" rx="18" fill="#f3f4f6"/>
+  <path d="M100 212v100q0 12-8 23M260 212v100q0 12 8 23" fill="none" stroke="#929496" stroke-width="25" stroke-linecap="round"/>
+  <circle cx="180" cy="143" r="147" fill="#b86028"/>
+  <circle cx="180" cy="143" r="126" fill="#e5dfad"/>
+  <circle cx="60" cy="143" r="15" fill="#d5d0a4"/><circle cx="300" cy="143" r="15" fill="#d5d0a4"/>
+  <path d="M250 63H122c-17 0-30 11-30 25s13 25 30 25h116c18 0 30 10 30 24s-12 24-30 24H122c-17 0-30 10-30 24s13 25 30 25h116c18 0 30 11 30 25s-12 24-30 24H109" fill="none" stroke="#b65e26" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

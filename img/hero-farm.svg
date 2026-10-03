@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" role="img" aria-labelledby="title desc">
+  <title id="title">Cultivo conectado con Arduino</title>
+  <desc id="desc">Surcos de cultivo con sensores de humedad, luz y temperatura conectados a una placa Arduino y a una red inalámbrica.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#193b28"/><stop offset=".58" stop-color="#173221"/><stop offset="1" stop-color="#0d2117"/></linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#64a56c"/><stop offset="1" stop-color="#2c6a50"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d1f48d"/><stop offset="1" stop-color="#70b875"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#274a31"/><stop offset="1" stop-color="#12271b"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#132a1d"/><stop offset="1" stop-color="#0c1c13"/></linearGradient>
+    <radialGradient id="sunGlow"><stop offset="0" stop-color="#d5f68a" stop-opacity=".21"/><stop offset="1" stop-color="#d5f68a" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="11"/><feOffset dy="11"/><feComponentTransfer><feFuncA type="linear" slope=".28"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#d4efbd" opacity=".18"/></pattern>
+    <style>
+      .trace{fill:none;stroke:#b8ee78;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:5 8;animation:flow 5s linear infinite}
+      .trace-blue{fill:none;stroke:#80d2c0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:4 8;animation:flow 6s linear infinite reverse}
+      .glow{animation:blink 2.3s ease-in-out infinite}
+      .grow{transform-origin:center bottom;animation:sway 5s ease-in-out infinite}
+      .grow:nth-of-type(2n){animation-delay:-1.6s}
+      @keyframes flow{to{stroke-dashoffset:-52}}
+      @keyframes blink{0%,100%{opacity:.55}50%{opacity:1}}
+      @keyframes sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+      @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+    </style>
+  </defs>
+
+  <!-- Ambient field / sensor grid -->
+  <circle cx="450" cy="292" r="278" fill="url(#sunGlow)"/>
+  <circle cx="455" cy="290" r="260" fill="none" stroke="#b9e98b" stroke-opacity=".08"/>
+  <circle cx="455" cy="290" r="220" fill="none" stroke="#b9e98b" stroke-opacity=".07" stroke-dasharray="2 10"/>
+  <path d="M86 165h76M124 127v76M573 108h64M605 76v64" stroke="#9fd683" stroke-opacity=".15" stroke-width="1"/>
+  <circle cx="124" cy="165" r="2.5" fill="#b9ed7c" opacity=".65"/><circle cx="605" cy="108" r="2.5" fill="#b9ed7c" opacity=".65"/>
+  <circle cx="624" cy="207" r="75" fill="url(#sunGlow)"/>
+  <circle cx="624" cy="176" r="22" fill="#d8ef92" fill-opacity=".12" stroke="#d8ef92" stroke-opacity=".3"/>
+  <circle cx="624" cy="176" r="8" fill="#d9f398" class="glow"/>
+  <path d="M586 176h-13m89 0h-13m-25-38v-13m0 115v-13m-27-78-9-9m72 72-9-9m0-54 9-9m-72 72 9-9" stroke="#d4ef8c" stroke-opacity=".48" stroke-linecap="round"/>
+
+  <!-- Wireless signal -->
+  <g fill="none" stroke="#aee883" stroke-linecap="round" opacity=".78">
+    <path d="M519 77c17-17 44-17 61 0" stroke-width="2"/>
+    <path d="M529 88c12-12 30-12 42 0" stroke-width="2"/>
+    <path d="M540 99c6-6 15-6 21 0" stroke-width="2"/>
+  </g>
+  <circle cx="550.5" cy="106" r="3" fill="#c2f279" class="glow"/>
+
+  <!-- Floating data dots -->
+  <g fill="#c6ef83">
+    <circle cx="205" cy="217" r="3" opacity=".7"/><circle cx="224" cy="202" r="1.8" opacity=".52"/>
+    <circle cx="582" cy="274" r="3" opacity=".65"/><circle cx="602" cy="294" r="1.8" opacity=".55"/>
+    <circle cx="185" cy="313" r="2.5" opacity=".65"/><circle cx="638" cy="344" r="2" opacity=".48"/>
+  </g>
+
+  <!-- Cloud / dashboard cue -->
+  <g transform="translate(77 221)" opacity=".88">
+    <path d="M28 42h71a19 19 0 0 0 0-38 27 27 0 0 0-51 8A17 17 0 0 0 28 42Z" fill="#193524" stroke="#84b978" stroke-opacity=".48"/>
+    <path d="M49 28h10l6-9 7 13 7-7h9" fill="none" stroke="#c0f080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="81" cy="25" r="2" fill="#c0f080"/>
+  </g>
+
+  <!-- Circuit traces behind board and down to probes -->
+  <path class="trace" d="M349 244v52c0 28-15 42-15 71v83c0 30-31 35-49 51"/>
+  <path class="trace-blue" d="M475 244v56c0 27 23 37 23 70v64c0 19 23 24 46 42"/>
+  <path class="trace" d="M535 233h54c20 0 24 13 24 30v28"/>
+  <circle cx="285" cy="501" r="5" fill="#c2f279" class="glow"/><circle cx="544" cy="477" r="5" fill="#7bd7c1" class="glow"/><circle cx="613" cy="291" r="4" fill="#c2f279" class="glow"/>
+
+  <!-- Horizon and soil -->
+  <path d="M32 405c70-26 145-16 208 3 76 24 130 8 206-10 105-25 182 6 267 19v223H32Z" fill="#1b3825"/>
+  <path d="M32 429c87-21 149 6 224 17 83 12 150-29 245-28 101 1 151 31 212 39v155H32Z" fill="url(#soil)"/>
+  <path d="M32 429c87-21 149 6 224 17 83 12 150-29 245-28 101 1 151 31 212 39v155H32Z" fill="url(#dots)" opacity=".46"/>
+
+  <!-- Cultivation rows in perspective -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M83 634c64-100 126-151 191-186" stroke="#537345" stroke-opacity=".53" stroke-width="9"/>
+    <path d="M160 640c54-94 95-137 143-174" stroke="#4c713f" stroke-opacity=".54" stroke-width="11"/>
+    <path d="M271 640c24-82 40-123 66-166" stroke="#63804a" stroke-opacity=".55" stroke-width="12"/>
+    <path d="M386 640c-7-80-8-126-13-168" stroke="#42693c" stroke-opacity=".61" stroke-width="13"/>
+    <path d="M503 640c-33-80-49-122-71-166" stroke="#55773d" stroke-opacity=".59" stroke-width="12"/>
+    <path d="M620 640c-59-93-100-138-151-172" stroke="#446d3d" stroke-opacity=".59" stroke-width="10"/>
+    <path d="M706 634c-71-93-133-139-193-174" stroke="#527344" stroke-opacity=".55" stroke-width="8"/>
+  </g>
+  <g fill="none" stroke="#b1dc76" stroke-opacity=".16" stroke-linecap="round">
+    <path d="M93 632c60-90 119-137 178-170" stroke-width="1.2"/>
+    <path d="M167 635c49-83 92-127 139-159" stroke-width="1.2"/>
+    <path d="M277 636c24-74 42-115 66-151" stroke-width="1.3"/>
+    <path d="M394 636c-6-73-8-117-13-152" stroke-width="1.3"/>
+    <path d="M510 636c-32-72-48-115-69-151" stroke-width="1.2"/>
+    <path d="M615 635c-51-82-94-126-145-159" stroke-width="1.2"/>
+  </g>
+
+  <!-- Plant silhouettes, leaves and stems -->
+  <g class="grow" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M117 506c-4-29-2-50 2-71" fill="none" stroke="#86bb69" stroke-width="4"/>
+    <path d="M119 470c-28 0-42-15-44-37 27 1 42 12 44 37Z" fill="url(#leaf)" stroke="#6eaa62"/>
+    <path d="M119 454c8-25 24-34 47-31-5 24-20 34-47 31Z" fill="#93c96e" stroke="#6eaa62"/>
+  </g>
+  <g class="grow" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M209 471c-4-27-2-48 3-72" fill="none" stroke="#88bd68" stroke-width="4"/>
+    <path d="M211 438c-26 0-40-13-43-34 25 0 40 11 43 34Z" fill="#b4da7c" stroke="#74ab60"/>
+    <path d="M212 421c7-23 22-33 43-30-5 23-18 32-43 30Z" fill="url(#leaf)" stroke="#74ab60"/>
+  </g>
+  <g class="grow" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M571 479c-4-27-2-48 3-73" fill="none" stroke="#82b96b" stroke-width="4"/>
+    <path d="M573 446c-26 0-41-13-44-34 26 0 41 11 44 34Z" fill="#b9dc7d" stroke="#6ba662"/>
+    <path d="M574 429c8-23 23-32 45-29-5 22-19 32-45 29Z" fill="#82bd70" stroke="#6ba662"/>
+  </g>
+  <g class="grow" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M660 503c-4-29-2-50 3-72" fill="none" stroke="#7db766" stroke-width="4"/>
+    <path d="M663 467c-29 0-44-14-47-37 28 0 44 12 47 37Z" fill="#b3d978" stroke="#75ab60"/>
+    <path d="M664 451c8-24 25-34 48-30-5 23-20 33-48 30Z" fill="#80bb6e" stroke="#75ab60"/>
+  </g>
+
+  <!-- Stylized YL-69 resistive soil-moisture probe -->
+  <g transform="translate(241 430) rotate(13)" filter="url(#shadow)">
+    <path d="M3 28h7v57M23 28h7v57" fill="none" stroke="#c8c9c9" stroke-width="6" stroke-linecap="round"/>
+    <rect x="0" y="0" width="33" height="37" rx="7" fill="#d72e23" stroke="#f2a69e" stroke-opacity=".82"/>
+    <circle cx="7" cy="8" r="3" fill="#f3eee5"/><circle cx="26" cy="29" r="3" fill="#f3eee5"/>
+    <path d="M9 7h14m-14 5h10M9 18h15m-15 5h9" stroke="#f5dfd5" stroke-width="1.5" stroke-linecap="round" opacity=".9"/>
+    <rect x="11" y="12" width="10" height="10" rx="2" fill="#36483a" stroke="#f1d5cb" stroke-width="1"/>
+  </g>
+
+  <!-- Ambient sensor mast -->
+  <g transform="translate(520 376)" filter="url(#shadow)">
+    <path d="M20 24v104" stroke="#bdcf9b" stroke-width="4" stroke-linecap="round"/>
+    <rect x="2" y="5" width="36" height="25" rx="8" fill="#1c3b28" stroke="#95c774" stroke-width="1.5"/>
+    <circle cx="20" cy="17.5" r="6" fill="#e0f38c" class="glow"/>
+    <path d="M10 41h20m-16 9h12" stroke="#c1e28a" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- IoT board with headers and main chip -->
+  <g transform="translate(253 112) rotate(-2 137 72)" filter="url(#shadow)">
+    <rect x="0" y="0" width="284" height="162" rx="21" fill="url(#board)" stroke="#a7df8b" stroke-opacity=".8" stroke-width="1.6"/>
+    <rect x="11" y="10" width="262" height="142" rx="16" fill="url(#dots)" opacity=".52"/>
+    <path d="M22 28h37v17h20m163 0h18v31h-34m-26 61h29v-18h20M19 109h30V89h22" fill="none" stroke="#a4e086" stroke-opacity=".55" stroke-width="2"/>
+    <circle cx="23" cy="28" r="3" fill="#cdf58e"/><circle cx="258" cy="45" r="3" fill="#cdf58e"/><circle cx="255" cy="122" r="3" fill="#cdf58e"/><circle cx="49" cy="89" r="3" fill="#cdf58e"/>
+    <rect x="91" y="36" width="102" height="81" rx="10" fill="#132b1d" stroke="#a0ce7c" stroke-opacity=".68" stroke-width="1.5"/>
+    <rect x="104" y="48" width="76" height="57" rx="4" fill="url(#screen)" stroke="#416b47" stroke-width="1"/>
+    <path d="M112 91h14l8-15 11 18 10-12 15-15" fill="none" stroke="#c5ee80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="165" cy="67" r="2.5" fill="#8bd1a5"/>
+    <path d="M112 97h54" stroke="#456947" stroke-width="1"/>
+    <text x="142" y="131" fill="#d6efad" font-family="monospace" font-size="8" letter-spacing="2" text-anchor="middle">ARDUINO / DATA</text>
+    <!-- USB edge and connector -->
+    <rect x="-8" y="62" width="20" height="39" rx="5" fill="#c4c8ba" stroke="#eef0e3" stroke-width="1"/>
+    <rect x="-5" y="68" width="12" height="27" rx="2" fill="#6c7769"/>
+    <!-- pin rows -->
+    <g fill="#e0cb76" stroke="#f3dfa0" stroke-width=".5">
+      <rect x="27" y="-7" width="9" height="16" rx="2"/><rect x="47" y="-7" width="9" height="16" rx="2"/><rect x="67" y="-7" width="9" height="16" rx="2"/><rect x="87" y="-7" width="9" height="16" rx="2"/><rect x="207" y="-7" width="9" height="16" rx="2"/><rect x="227" y="-7" width="9" height="16" rx="2"/><rect x="247" y="-7" width="9" height="16" rx="2"/>
+      <rect x="27" y="153" width="9" height="16" rx="2"/><rect x="47" y="153" width="9" height="16" rx="2"/><rect x="67" y="153" width="9" height="16" rx="2"/><rect x="87" y="153" width="9" height="16" rx="2"/><rect x="207" y="153" width="9" height="16" rx="2"/><rect x="227" y="153" width="9" height="16" rx="2"/><rect x="247" y="153" width="9" height="16" rx="2"/>
+    </g>
+    <circle cx="24" cy="18" r="4" fill="#183622" stroke="#b5e58a"/><circle cx="260" cy="18" r="4" fill="#183622" stroke="#b5e58a"/><circle cx="24" cy="143" r="4" fill="#183622" stroke="#b5e58a"/><circle cx="260" cy="143" r="4" fill="#183622" stroke="#b5e58a"/>
+    <circle cx="74" cy="131" r="3" fill="#d1ec84" class="glow"/><circle cx="216" cy="130" r="3" fill="#8ee1c4" class="glow"/>
+  </g>
+
+  <!-- Tiny measurement callouts -->
+  <g transform="translate(83 369)">
+    <rect width="107" height="33" rx="9" fill="#11281a" stroke="#9bc875" stroke-opacity=".38"/>
+    <circle cx="14" cy="16.5" r="4" fill="#c2f279"/><text x="27" y="20" fill="#d2e4ce" font-family="monospace" font-size="8" letter-spacing="1">SUELO · A0</text>
+  </g>
+  <g transform="translate(575 394)">
+    <rect width="99" height="33" rx="9" fill="#11281a" stroke="#86cfba" stroke-opacity=".38"/>
+    <circle cx="14" cy="16.5" r="4" fill="#8ee1c4"/><text x="27" y="20" fill="#d2e4ce" font-family="monospace" font-size="8" letter-spacing="1">AIRE · I²C</text>
+  </g>
+</svg>
