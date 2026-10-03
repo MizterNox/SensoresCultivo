@@ -77,109 +77,85 @@
               <div class="plot-axis plot-axis--x"><span>06:00</span><span>12:00</span><span>18:00</span></div>
             </div>
             <div class="signal-row">
-              <div class="signal-item"><span class="signal-icon signal-icon--soil" aria-hidden="true">◒</span><span><b>Suelo</b><small>humedad · pH · temperatura</small></span></div>
-              <div class="signal-item"><span class="signal-icon signal-icon--air" aria-hidden="true">◉</span><span><b>Ambiente</b><small>humedad · luz · lluvia</small></span></div>
+              <div class="signal-item"><span class="signal-icon signal-icon--soil" aria-hidden="true">◒</span><span><b>Suelo</b><small>humedad · temperatura</small></span></div>
+              <div class="signal-item"><span class="signal-icon signal-icon--air" aria-hidden="true">◉</span><span><b>Ambiente</b><small>gases · luz</small></span></div>
             </div>
             <div class="panel-foot"><span>OBSERVAR</span><span class="panel-foot-line"></span><span>COMPRENDER</span><span class="panel-foot-line"></span><span>ACTUAR</span></div>
           </div>
         </div>
       </section>
 
-      <!-- 03 · SENSORES DE SUELO -->
-      <section class="slide slide--sensors slide--light" id="slide-3" aria-label="Diapositiva 3 de 9: Sensores del suelo" aria-hidden="true" tabindex="-1" inert>
+      <!-- 03 · HUMEDAD DEL SUELO Y TEMPERATURA -->
+      <section class="slide slide--sensors slide--light" id="slide-3" aria-label="Diapositiva 3 de 9: Sensores YL-69 y TMP36" aria-hidden="true" tabindex="-1" inert>
         <div class="content-frame">
           <div class="section-heading section-heading--row">
-            <div><div class="eyebrow"><span class="eyebrow-number">03</span> SENSORES · ZONA RADICULAR</div><h2>El suelo cuenta<br>su parte.</h2></div>
-            <p class="section-deck">Tres mediciones para entender mejor el entorno de las raíces.</p>
+            <div><div class="eyebrow"><span class="eyebrow-number">03</span> SENSORES · SUELO + TEMPERATURA</div><h2>Suelo y<br>temperatura.</h2></div>
+            <p class="section-deck">Humedad del sustrato y temperatura del aire. Pines recomendados para Arduino Uno.</p>
           </div>
 
-          <div class="sensor-grid">
+          <div class="sensor-grid sensor-grid--pair">
             <article class="sensor-card sensor-card--green">
               <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-humedad-suelo.jpg" alt="Sensor capacitivo Grove para humedad del suelo; ilustración referencial, no es una foto oficial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 01</span><h3>Humedad del suelo</h3><p class="sensor-model">Grove Capacitive Moisture Sensor (Corrosion Resistant) · Seeed Studio</p></div>
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-yl69.svg" alt="Ilustración referencial de la sonda resistiva YL-69 con placa de conexión roja." width="320" height="720"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 01</span><h3>Humedad del suelo</h3><p class="sensor-model">YL-69 · sonda resistiva + módulo YL-38</p></div>
               </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Agua en el sustrato<br><em>lectura relativa</em></strong></div>
-              <p><b>¿Para qué?</b> Estimar si la zona de raíces se está secando y orientar el riego.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Lectura baja → revisar si hace falta regar.</span></div>
-              <div class="sensor-card-foot"><span>Capacitivo · analógico A0</span><a class="citation-link" href="#ref-seeed-moisture" data-reference="ref-seeed-moisture" aria-label="Ver fuente: Seeed Studio">(Seeed Studio, s. f.-a)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino">(Arduino, 2025)</a></div>
-              <div class="calibration-note"><span>!</span> Calibra en tu suelo: el valor no es un porcentaje universal.</div>
-            </article>
-
-            <article class="sensor-card sensor-card--amber">
-              <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-ph.jpg" alt="Sonda de pH de vidrio y placa acondicionadora Gravity; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 02</span><h3>pH del suelo</h3><p class="sensor-model">Gravity Analog pH Sensor V2 · SEN0161-V2</p></div>
-              </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Acidez / alcalinidad<br><em>pH de una muestra líquida</em></strong></div>
-              <p><b>¿Para qué?</b> Orientar la evaluación de la disponibilidad de nutrientes; no indica por sí solo la fertilidad.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Medir un extracto suelo‑agua antes de ajustar el sustrato.</span></div>
-              <div class="sensor-card-foot"><span>Sonda + acondicionador · A1</span><a class="citation-link" href="#ref-dfrobot-ph" data-reference="ref-dfrobot-ph" aria-label="Ver fuente: DFRobot">(DFRobot, s. f.)</a></div>
-              <div class="calibration-note"><span>!</span> Usa muestra líquida y calibra con soluciones patrón.</div>
+              <div class="measure-row"><span>VARIABLE</span><strong>Humedad del sustrato<br><em>lectura analógica relativa</em></strong></div>
+              <p><b>¿Para qué?</b> Identificar si la zona de raíces se seca y orientar la revisión del riego.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Compara suelo seco y húmedo antes de fijar un umbral.</span></div>
+              <div class="sensor-card-foot"><span>SEÑAL analógica (AO) · PIN A0 recomendado · DO → D4 opcional*</span><a class="citation-link" href="#ref-yl69" data-reference="ref-yl69" aria-label="Ver fuente: Arduwiki">(Arduwiki, s. f.)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino analogRead">(Arduino, 2025)</a><a class="citation-link" href="#ref-hibit" data-reference="ref-hibit" aria-label="Ver fuente: HiBit, sensor de humedad del suelo">(HiBit, 2025)</a></div>
+              <div class="calibration-note"><span>!</span> Calibra en tu sustrato y energiza la sonda solo al medir para reducir corrosión. *DO solo con módulo comparador.</div>
             </article>
 
             <article class="sensor-card sensor-card--blue">
               <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-temperatura.jpg" alt="Sonda encapsulada tipo DS18B20 con cable; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 03</span><h3>Temperatura del suelo</h3><p class="sensor-model">DS18B20 · sonda encapsulada</p></div>
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-tmp36.svg" alt="Ilustración referencial de un sensor TMP36 negro en encapsulado TO-92 con tres terminales." width="300" height="430"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 02</span><h3>Temperatura del aire</h3><p class="sensor-model">TMP36 · encapsulado TO-92</p></div>
               </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Temperatura<br><em>°C en zona radicular</em></strong></div>
-              <p><b>¿Para qué?</b> Detectar cambios térmicos que pueden afectar el entorno de las raíces.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar una subida inusual y generar una alerta.</span></div>
-              <div class="sensor-card-foot"><span>Digital · bus 1‑Wire</span><a class="citation-link" href="#ref-ds18b20" data-reference="ref-ds18b20" aria-label="Ver fuente: Analog Devices">(Analog Devices, s. f.)</a></div>
-              <div class="calibration-note"><span>i</span> Sensor digital: Arduino recibe el dato por un bus de un cable.</div>
+              <div class="measure-row"><span>VARIABLE</span><strong>Temperatura<br><em>salida lineal en °C</em></strong></div>
+              <p><b>¿Para qué?</b> Observar cambios térmicos cerca del cultivo sin exponer el sensor al agua.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Conecta VOUT a A1 y convierte su tensión a temperatura.</span></div>
+              <div class="sensor-card-foot"><span>SEÑAL de tensión analógica (VOUT) · PIN A1 recomendado</span><a class="citation-link" href="#ref-tmp36" data-reference="ref-tmp36" aria-label="Ver fuente: Analog Devices TMP36">(Analog Devices, 2015)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino analogRead">(Arduino, 2025)</a></div>
+              <div class="calibration-note"><span>i</span> Sensibilidad típica: 10 mV/°C; ubícalo a la sombra y protégelo del riego directo.</div>
             </article>
           </div>
-          <p class="slide-source-line">La humedad capacitiva entrega una lectura que requiere interpretación y calibración local (<a class="citation-link" href="#ref-seeed-moisture" data-reference="ref-seeed-moisture" aria-label="Ver fuente: Seeed Studio">Seeed Studio, s. f.-a</a>).</p>
+          <p class="slide-source-line">El Arduino Uno R3 tiene seis entradas analógicas; <i>analogRead</i> convierte la tensión en una lectura de 10 bits (<a class="citation-link" href="#ref-arduino-uno" data-reference="ref-arduino-uno" aria-label="Ver fuente: Arduino UNO R3">Arduino</a>, s. f., <a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino analogRead">2025</a>).</p>
         </div>
       </section>
 
-      <!-- 04 · SENSORES AMBIENTALES -->
-      <section class="slide slide--sensors slide--light" id="slide-4" aria-label="Diapositiva 4 de 9: Sensores ambientales" aria-hidden="true" tabindex="-1" inert>
+      <!-- 04 · GAS Y LUZ -->
+      <section class="slide slide--sensors slide--light" id="slide-4" aria-label="Diapositiva 4 de 9: Sensores MQ-2 y LDR de 5 milímetros" aria-hidden="true" tabindex="-1" inert>
         <div class="content-frame">
           <div class="section-heading section-heading--row">
-            <div><div class="eyebrow"><span class="eyebrow-number">04</span> SENSORES · AMBIENTE</div><h2>El entorno también<br>da señales.</h2></div>
-            <p class="section-deck">Aire, luz y lluvia completan la lectura de lo que vive la planta.</p>
+            <div><div class="eyebrow"><span class="eyebrow-number">04</span> SENSORES · AIRE + LUZ</div><h2>El entorno también<br>da señales.</h2></div>
+            <p class="section-deck">MQ-2: gases combustibles y humo. LDR: cambios de luz. Pines recomendados para Arduino Uno.</p>
           </div>
 
-          <div class="sensor-grid">
-            <article class="sensor-card sensor-card--blue">
-              <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-humedad-ambiental.jpg" alt="Sensor DHT22 blanco con ranuras de ventilación; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 04</span><h3>Humedad ambiental</h3><p class="sensor-model">DHT22 / AM2302</p></div>
-              </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Humedad relativa<br><em>% HR y temperatura del aire</em></strong></div>
-              <p><b>¿Para qué?</b> Entender el microclima y vigilar periodos de humedad alta.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Aviso para revisar ventilación en un invernadero.</span></div>
-              <div class="sensor-card-foot"><span>Salida · un pin digital</span><a class="citation-link" href="#ref-adafruit-dht" data-reference="ref-adafruit-dht" aria-label="Ver fuente: Adafruit">(Adafruit, 2024b)</a></div>
-              <div class="calibration-note"><span>i</span> Colócalo a la sombra, protegido del agua directa.</div>
-            </article>
-
+          <div class="sensor-grid sensor-grid--pair">
             <article class="sensor-card sensor-card--amber">
               <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-luminosidad.jpg" alt="Módulo BH1750 en una pequeña placa I²C; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 05</span><h3>Luminosidad</h3><p class="sensor-model">BH1750 · breakout I²C</p></div>
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-mq2.svg" alt="Ilustración referencial del elemento metálico de malla del sensor semiconductor MQ-2." width="560" height="700"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 03</span><h3>Gas y humo</h3><p class="sensor-model">MQ-2 · sensor semiconductor SnO₂</p></div>
               </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Iluminancia<br><em>lux (lx)</em></strong></div>
-              <p><b>¿Para qué?</b> Comparar la luz disponible y detectar zonas con sombra.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Comparar lecturas entre mañana y mediodía.</span></div>
-              <div class="sensor-card-foot"><span>Interfaz digital · I²C</span><a class="citation-link" href="#ref-adafruit-bh1750" data-reference="ref-adafruit-bh1750" aria-label="Ver fuente: Adafruit">(Adafruit, 2024a)</a></div>
-              <div class="calibration-note"><span>!</span> Lux orienta; para luz fotosintética se mide PAR/PPFD.</div>
+              <div class="measure-row"><span>VARIABLE</span><strong>Gases combustibles / humo<br><em>respuesta relativa, no selectiva</em></strong></div>
+              <p><b>¿Para qué?</b> Detectar cambios en el aire de un invernadero o almacén; no mide CO₂ ni identifica un gas concreto.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Una variación genera un aviso para revisar el entorno.</span></div>
+              <div class="sensor-card-foot"><span>SEÑAL analógica (circuito de carga/AO) · PIN A2 recomendado · DO → D4 opcional*</span><a class="citation-link citation-link--wrap" href="#ref-mq2" data-reference="ref-mq2" aria-label="Ver fuente: manual MQ-2 de Winsen">(Zhengzhou Winsen Electronics Technology Co., Ltd. [Winsen], 2015)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino analogRead">(Arduino, 2025)</a></div>
+              <div class="calibration-note"><span>!</span> Requiere calentador, precalentamiento y calibración; no es un detector certificado de seguridad. *DO solo en placa comparadora.</div>
             </article>
 
             <article class="sensor-card sensor-card--green">
               <div class="sensor-card-head">
-                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-lluvia.jpg" alt="Placa de detección de gotas conectada a un módulo; ilustración referencial." width="640" height="640"><span class="sensor-photo-label">REFERENCIAL</span></div>
-                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 06</span><h3>Lluvia / mojado</h3><p class="sensor-model">Grove Water Sensor V1.1 · Seeed Studio</p></div>
+                <div class="sensor-photo-frame"><img class="sensor-product-photo" src="img/sensor-ldr5mm.svg" alt="Ilustración referencial de una fotoresistencia LDR de 5 milímetros con pista fotosensible y dos terminales." width="360" height="360"><span class="sensor-photo-label">REFERENCIAL</span></div>
+                <div class="sensor-heading-copy"><span class="sensor-index">SENSOR 04</span><h3>Luminosidad</h3><p class="sensor-model">LDR fotoresistor CdS · 5 mm</p></div>
               </div>
-              <div class="measure-row"><span>VARIABLE</span><strong>Presencia de gotas<br><em>seco / mojado</em></strong></div>
-              <p><b>¿Para qué?</b> Detectar lluvia o superficie húmeda en el cultivo.</p>
-              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar lluvia y reconsiderar el riego.</span></div>
-              <div class="sensor-card-foot"><span>Placa de lluvia · según módulo</span><a class="citation-link" href="#ref-seeed-water" data-reference="ref-seeed-water" aria-label="Ver fuente: Seeed Studio">(Seeed Studio, s. f.-b)</a></div>
-              <div class="calibration-note"><span>!</span> Una placa de gotas detecta mojado; no mide mm de lluvia.</div>
+              <div class="measure-row"><span>VARIABLE</span><strong>Cambio de luz<br><em>lectura relativa, no lux</em></strong></div>
+              <p><b>¿Para qué?</b> Comparar zonas iluminadas y reconocer sombras en el cultivo.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> LDR + resistor de 10 kΩ: lleva el punto medio a A3.</span></div>
+              <div class="sensor-card-foot"><span>SEÑAL analógica (divisor resistivo) · PIN A3 recomendado</span><a class="citation-link" href="#ref-photocells" data-reference="ref-photocells" aria-label="Ver fuente: Adafruit Photocells">(Adafruit, 2024)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino analogRead">(Arduino, 2025)</a></div>
+              <div class="calibration-note"><span>i</span> La resistencia cambia con la luz; calibra el montaje, no es un luxómetro preciso.</div>
             </article>
           </div>
-          <p class="slide-source-line">Arduino convierte la tensión de una entrada analógica en una lectura digital; el rango depende de la placa (<a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino">Arduino, 2025</a>).</p>
+          <p class="slide-source-line">A2 y A3 son entradas analógicas del Arduino Uno R3 (<a class="citation-link" href="#ref-arduino-uno" data-reference="ref-arduino-uno" aria-label="Ver fuente: Arduino UNO R3">Arduino, s. f.</a>); la LDR se lee con divisor resistivo (<a class="citation-link" href="#ref-photocells" data-reference="ref-photocells" aria-label="Ver fuente: Adafruit Photocells">Adafruit, 2024</a>) y el MQ-2 necesita circuito de carga y ajuste (<a class="citation-link" href="#ref-mq2" data-reference="ref-mq2" aria-label="Ver fuente: manual MQ-2 de Winsen">Winsen, 2015</a>).</p>
         </div>
       </section>
 
@@ -270,7 +246,7 @@
             <article class="benefit-card"><span class="benefit-icon benefit-icon--mint" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><path d="M20 11v9l6 4M20 3v4m17 13h-4M7 20H3"/></svg></span><div><span class="benefit-tag">02 / TIEMPO</span><h3>Monitoreo constante</h3><p>Observa patrones y cambios a lo largo del día.</p></div></article>
             <article class="benefit-card"><span class="benefit-icon benefit-icon--coral" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 5 34 30H6L20 5Z"/><path d="M20 15v7m0 4v.1"/></svg></span><div><span class="benefit-tag">03 / PREVENCIÓN</span><h3>Detecta cambios</h3><p>Una alerta temprana permite revisar antes de actuar.</p></div></article>
             <article class="benefit-card"><span class="benefit-icon benefit-icon--blue" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 8h22v25H9zM14 27l5-6 4 3 5-8"/><path d="M13 13h4"/></svg></span><div><span class="benefit-tag">04 / REGISTRO</span><h3>Mejor seguimiento</h3><p>Compara lecturas para entender cómo evoluciona el cultivo.</p></div></article>
-            <article class="benefit-card"><span class="benefit-icon benefit-icon--mint" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 20h26M20 7v26M11 11l18 18m0-18L11 29"/><circle cx="20" cy="20" r="5"/></svg></span><div><span class="benefit-tag">05 / CONTROL</span><h3>Más variables en conjunto</h3><p>Relaciona el agua del suelo con el calor, la luz o la lluvia.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--mint" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 20h26M20 7v26M11 11l18 18m0-18L11 29"/><circle cx="20" cy="20" r="5"/></svg></span><div><span class="benefit-tag">05 / CONTROL</span><h3>Más variables en conjunto</h3><p>Combina humedad del suelo, temperatura y señales de luz o gases.</p></div></article>
             <article class="benefit-card"><span class="benefit-icon benefit-icon--lime" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="7" y="11" width="16" height="18" rx="3"/><path d="M11 7v4m8-4v4m4 5h5a5 5 0 0 1 0 10h-5m-12-3h6"/><circle cx="13" cy="20" r="1"/></svg></span><div><span class="benefit-tag">06 / RESPUESTA</span><h3>Automatiza por etapas</h3><p>Empieza con avisos; añade actuadores cuando el sistema esté probado.</p></div></article>
           </div>
           <div class="benefit-ribbon"><span class="ribbon-dot"></span><span>BUENA MEDICIÓN = SENSOR ADECUADO + UBICACIÓN + CALIBRACIÓN</span><span class="ribbon-dot"></span></div>
@@ -310,17 +286,16 @@
           </div>
 
           <ul class="references-grid">
-            <li class="reference" id="ref-adafruit-bh1750"><div><p>Adafruit. (2024a, 8 de marzo). <i>Adafruit BH1750 ambient light sensor</i>.</p><a href="https://learn.adafruit.com/adafruit-bh1750-ambient-light-sensor/overview" target="_blank" rel="noopener noreferrer">https://learn.adafruit.com/adafruit-bh1750-ambient-light-sensor/overview</a></div></li>
-            <li class="reference" id="ref-adafruit-dht"><div><p>Adafruit. (2024b, 8 de marzo). <i>DHT11, DHT22 and AM2302 sensors</i>.</p><a href="https://learn.adafruit.com/dht" target="_blank" rel="noopener noreferrer">https://learn.adafruit.com/dht</a></div></li>
-            <li class="reference" id="ref-ds18b20"><div><p>Analog Devices. (s. f.). <i>DS18B20: Programmable resolution 1-Wire digital thermometer</i> [Hoja de datos].</p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf" target="_blank" rel="noopener noreferrer">https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf</a></div></li>
+            <li class="reference" id="ref-photocells"><div><p>Adafruit. (2024, 8 de marzo). <i>Photocells</i>.</p><a href="https://learn.adafruit.com/photocells" target="_blank" rel="noopener noreferrer">https://learn.adafruit.com/photocells</a></div></li>
+            <li class="reference" id="ref-tmp36"><div><p>Analog Devices. (2015). <i>TMP35/TMP36/TMP37</i> [Hoja de datos, revisión H].</p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/tmp35_36_37.pdf" target="_blank" rel="noopener noreferrer">https://www.analog.com/media/en/technical-documentation/data-sheets/tmp35_36_37.pdf</a></div></li>
             <li class="reference" id="ref-arduino-uno"><div><p>Arduino. (s. f.). <i>UNO R3</i>.</p><a href="https://docs.arduino.cc/hardware/uno-rev3/" target="_blank" rel="noopener noreferrer">https://docs.arduino.cc/hardware/uno-rev3/</a></div></li>
             <li class="reference" id="ref-arduino"><div><p>Arduino. (2025, 9 de mayo). <i>analogRead()</i>.</p><a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/" target="_blank" rel="noopener noreferrer">https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/</a></div></li>
-            <li class="reference" id="ref-dfrobot-ph"><div><p>DFRobot. (s. f.). <i>Gravity: Analog pH Sensor V2 (SEN0161-V2)</i>.</p><a href="https://wiki.dfrobot.com/sen0161-v2" target="_blank" rel="noopener noreferrer">https://wiki.dfrobot.com/sen0161-v2</a></div></li>
+            <li class="reference" id="ref-yl69"><div><p>Arduwiki. (s. f.). <i>Soil moisture sensor (YL-69)</i>.</p><a href="https://arduwiki.com/wiki/Soil_moisture_sensor(YL-69)" target="_blank" rel="noopener noreferrer">https://arduwiki.com/wiki/Soil_moisture_sensor(YL-69)</a></div></li>
             <li class="reference" id="ref-espressif"><div><p>Espressif Systems. (s. f.). <i>Get started—ESP32</i>. ESP-IDF Programming Guide. Recuperado el 3 de octubre de 2026, de</p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html" target="_blank" rel="noopener noreferrer">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html</a></div></li>
-            <li class="reference" id="ref-seeed-moisture"><div><p>Seeed Studio. (s. f.-a). <i>Grove—Capacitive Moisture Sensor (Corrosion Resistant)</i>.</p><a href="https://wiki.seeedstudio.com/Grove-Capacitive_Moisture_Sensor-Corrosion-Resistant/" target="_blank" rel="noopener noreferrer">https://wiki.seeedstudio.com/Grove-Capacitive_Moisture_Sensor-Corrosion-Resistant/</a></div></li>
-            <li class="reference" id="ref-seeed-water"><div><p>Seeed Studio. (s. f.-b). <i>Grove—Water Sensor</i>.</p><a href="https://wiki.seeedstudio.com/Grove-Water_Sensor/" target="_blank" rel="noopener noreferrer">https://wiki.seeedstudio.com/Grove-Water_Sensor/</a></div></li>
+            <li class="reference" id="ref-hibit"><div><p>HiBit. (2025, 1 de diciembre). <i>Soil moisture sensor with Arduino</i>.</p><a href="https://www.hibit.dev/posts/266/soil-moisture-sensor-with-arduino" target="_blank" rel="noopener noreferrer">https://www.hibit.dev/posts/266/soil-moisture-sensor-with-arduino</a></div></li>
+            <li class="reference" id="ref-mq2"><div><p>Zhengzhou Winsen Electronics Technology Co., Ltd. (2015, 10 de marzo). <i>Flammable gas sensor (model MQ-2)</i> [Manual, versión 1.4].</p><a href="https://www.winsen-sensor.com/d/files/PDF/Semiconductor%20Gas%20Sensor/MQ-2%20(Ver1.4)%20-%20Manual.pdf" target="_blank" rel="noopener noreferrer">https://www.winsen-sensor.com/d/files/PDF/Semiconductor%20Gas%20Sensor/MQ-2%20(Ver1.4)%20-%20Manual.pdf</a></div></li>
           </ul>
-          <div class="sources-footer"><span>Fuentes técnicas oficiales y documentación de fabricantes.</span><span>CONTENIDO EN ESPAÑOL · PRESENTACIÓN EDUCATIVA</span></div>
+          <div class="sources-footer"><span>Hojas de datos, guías técnicas y documentación de fabricantes.</span><span>CONTENIDO EN ESPAÑOL · PRESENTACIÓN EDUCATIVA</span></div>
         </div>
       </section>
     </div>
@@ -330,8 +305,8 @@
       <div class="deck-progress" aria-label="Progreso de la presentación">
         <button class="progress-step is-current" type="button" data-go-to="0" aria-label="Ir a la diapositiva 1: Portada" aria-current="step"><span></span></button>
         <button class="progress-step" type="button" data-go-to="1" aria-label="Ir a la diapositiva 2: Introducción"><span></span></button>
-        <button class="progress-step" type="button" data-go-to="2" aria-label="Ir a la diapositiva 3: Sensores del suelo"><span></span></button>
-        <button class="progress-step" type="button" data-go-to="3" aria-label="Ir a la diapositiva 4: Sensores ambientales"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="2" aria-label="Ir a la diapositiva 3: Sensores de suelo y temperatura"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="3" aria-label="Ir a la diapositiva 4: Sensores de gas y luz"><span></span></button>
         <button class="progress-step" type="button" data-go-to="4" aria-label="Ir a la diapositiva 5: Funcionamiento"><span></span></button>
         <button class="progress-step" type="button" data-go-to="5" aria-label="Ir a la diapositiva 6: Arquitectura IoT"><span></span></button>
         <button class="progress-step" type="button" data-go-to="6" aria-label="Ir a la diapositiva 7: Beneficios"><span></span></button>

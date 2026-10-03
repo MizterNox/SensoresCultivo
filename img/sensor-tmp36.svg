@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 430" role="img" aria-labelledby="title desc">
+  <title id="title">Sensor de temperatura TMP36</title>
+  <desc id="desc">Ilustración vectorial de un sensor de temperatura TMP36 en encapsulado TO-92 con tres terminales.</desc>
+  <rect width="300" height="430" rx="18" fill="#f3f4f6"/>
+  <ellipse cx="150" cy="77" rx="126" ry="55" fill="#55575a"/>
+  <ellipse cx="150" cy="79" rx="108" ry="39" fill="#303133"/>
+  <path d="M24 74h252v242c0 17-10 32-25 38H49c-15-6-25-21-25-38Z" fill="#27282a" stroke="#4f5154" stroke-width="4"/>
+  <path d="M49 115h202v203H49Z" fill="#333537" stroke="#5b5e60" stroke-width="5"/>
+  <text x="150" y="244" fill="#ececeb" font-family="ui-rounded, system-ui, sans-serif" font-size="66" font-weight="700" text-anchor="middle" letter-spacing="5">TMP</text>
+  <path d="M71 354v30c0 21-36 21-36 45v0M150 354v75M229 354v30c0 21 36 21 36 45v0" fill="none" stroke="#929496" stroke-width="22" stroke-linecap="round"/>
+  <path d="M62 348h18m61 0h18m61 0h18" stroke="#6f7173" stroke-width="4"/>
+</svg>

@@ -108,12 +108,13 @@
     <path d="M664 451c8-24 25-34 48-30-5 23-20 33-48 30Z" fill="#80bb6e" stroke="#75ab60"/>
   </g>
 
-  <!-- Capacitive soil probe -->
+  <!-- Stylized YL-69 resistive soil-moisture probe -->
   <g transform="translate(241 430) rotate(13)" filter="url(#shadow)">
-    <rect x="0" y="0" width="23" height="94" rx="8" fill="#91d47b" stroke="#d2f59a" stroke-opacity=".75"/>
-    <rect x="5" y="7" width="13" height="54" rx="5" fill="#264b31"/>
-    <path d="M8 15h7m-7 8h7m-7 8h7m-7 8h7" stroke="#9ed978" stroke-width="2" stroke-linecap="round" opacity=".72"/>
-    <circle cx="11.5" cy="76" r="4" fill="#d1f488"/>
+    <path d="M3 28h7v57M23 28h7v57" fill="none" stroke="#c8c9c9" stroke-width="6" stroke-linecap="round"/>
+    <rect x="0" y="0" width="33" height="37" rx="7" fill="#d72e23" stroke="#f2a69e" stroke-opacity=".82"/>
+    <circle cx="7" cy="8" r="3" fill="#f3eee5"/><circle cx="26" cy="29" r="3" fill="#f3eee5"/>
+    <path d="M9 7h14m-14 5h10M9 18h15m-15 5h9" stroke="#f5dfd5" stroke-width="1.5" stroke-linecap="round" opacity=".9"/>
+    <rect x="11" y="12" width="10" height="10" rx="2" fill="#36483a" stroke="#f1d5cb" stroke-width="1"/>
   </g>
 
   <!-- Ambient sensor mast -->
@@ -122,13 +123,6 @@
     <rect x="2" y="5" width="36" height="25" rx="8" fill="#1c3b28" stroke="#95c774" stroke-width="1.5"/>
     <circle cx="20" cy="17.5" r="6" fill="#e0f38c" class="glow"/>
     <path d="M10 41h20m-16 9h12" stroke="#c1e28a" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
-  </g>
-
-  <!-- pH sampling probe -->
-  <g transform="translate(465 486) rotate(-18)">
-    <path d="M0 0v58" stroke="#9bb2bd" stroke-width="9" stroke-linecap="round"/>
-    <path d="M0 51v27" stroke="#cfddd3" stroke-width="7" stroke-linecap="round"/>
-    <path d="M-4 78h8" stroke="#d9f18a" stroke-width="3" stroke-linecap="round"/>
   </g>
 
   <!-- IoT board with headers and main chip -->
