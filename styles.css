@@ -649,3 +649,164 @@ a { color: inherit; }
   .slide { position: relative; inset: auto; display: block; width: 100%; min-height: 100vh; overflow: hidden; opacity: 1; visibility: visible; transform: none; page-break-after: always; }
   .deck-controls, #keyboard-help { display: none; }
 }
+
+/* Presenter-first polish: keep illustrations uncropped and make supporting copy readable on a projector. */
+@media screen {
+  :root {
+    --type-meta: clamp(11px, .78vw, 13px);
+    --type-caption: clamp(12px, .9vw, 14px);
+    --type-body-compact: clamp(14px, 1.02vw, 16px);
+    --type-body: clamp(15px, 1.12vw, 18px);
+  }
+
+  .cover-art-wrap { min-height: min(500px, 58svh); }
+  .cover-art {
+    width: min(100%, 720px);
+    height: auto;
+    max-height: min(68svh, 650px);
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .sensor-card-head {
+    grid-template-columns: clamp(108px, 10vw, 142px) minmax(0, 1fr);
+    gap: 16px;
+    min-height: 148px;
+  }
+  .sensor-photo-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: clamp(148px, 17vh, 176px);
+    min-height: 148px;
+    padding: 8px 7px 6px;
+    overflow: hidden;
+  }
+  .sensor-product-photo {
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  .sensor-photo-label {
+    position: static;
+    align-self: flex-end;
+    flex: 0 0 auto;
+    margin-top: 4px;
+    padding: 3px 5px;
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .eyebrow { font-size: var(--type-meta); letter-spacing: .1em; }
+  .eyebrow-number { font-size: 11px; }
+  .micro-label { font-size: var(--type-meta); letter-spacing: .09em; }
+  .cover-edition { font-size: var(--type-meta); letter-spacing: .12em; }
+  .cover-copy h1,
+  .intro-copy h2,
+  .section-heading h2,
+  .conclusion-copy h2 { letter-spacing: -.045em; }
+  .cover-copy h1 { line-height: .98; }
+  .cover-course p { font-size: var(--type-body-compact); line-height: 1.45; }
+  .cover-course p span { font-size: var(--type-caption); }
+  .cover-team ul { font-size: var(--type-caption); line-height: 1.45; }
+  .cover-career { font-size: var(--type-meta); line-height: 1.55; }
+  .art-orbit-label { font-size: var(--type-meta); letter-spacing: .08em; }
+  .art-float b { font-size: var(--type-meta); letter-spacing: .06em; }
+  .art-float small { font-size: var(--type-meta); }
+  .art-float strong span { font-size: var(--type-meta); }
+  .art-caption, .cover-bottom-note { font-size: var(--type-meta); letter-spacing: .08em; }
+
+  .lead { letter-spacing: -.01em; line-height: 1.52; }
+  .body-copy { font-size: var(--type-body); line-height: 1.62; }
+  .intro-callout { font-size: var(--type-body-compact); line-height: 1.55; }
+  .intro-footnote { font-size: var(--type-meta); line-height: 1.6; }
+  .citation-link { font-size: .9em; }
+  .intro-footnote .citation-link, .slide-source-line .citation-link { font-size: var(--type-meta); }
+  .field-panel-top h3 { letter-spacing: -.035em; }
+  .panel-live, .plot-tooltip span, .plot-axis, .panel-foot { font-size: var(--type-meta); letter-spacing: .06em; }
+  .plot-tooltip strong { font-size: 14px; }
+  .plot-tooltip small { font-size: var(--type-meta); }
+  .signal-item b { font-size: var(--type-caption); }
+  .signal-item small { font-size: var(--type-meta); }
+
+  .section-deck { max-width: 440px; font-size: var(--type-body-compact); line-height: 1.55; }
+  .sensor-index, .sensor-model, .measure-row > span { font-size: var(--type-meta); }
+  .sensor-card h3 { font-size: clamp(22px, 2vw, 26px); letter-spacing: -.025em; line-height: 1.12; }
+  .measure-row strong { font-size: var(--type-body-compact); line-height: 1.45; }
+  .measure-row em { font-size: var(--type-caption); }
+  .sensor-card > p { font-size: var(--type-body-compact); line-height: 1.55; }
+  .example-row { font-size: var(--type-body-compact); line-height: 1.5; }
+  .sensor-card-foot { font-size: var(--type-meta); line-height: 1.45; }
+  .sensor-card-foot .citation-link { font-size: var(--type-meta); line-height: 1.4; white-space: normal; }
+  .calibration-note { font-size: var(--type-caption); line-height: 1.5; }
+  .calibration-note > span { width: 17px; height: 17px; font-size: 11px; }
+  .slide-source-line { font-size: var(--type-meta); line-height: 1.5; }
+
+  .step-number, .flow-example-tag, .sim-label, .sim-mode, .sim-reading > span, .gauge-labels { font-size: var(--type-meta); }
+  .flow-step b { font-size: var(--type-caption); }
+  .flow-step small { font-size: var(--type-meta); line-height: 1.4; }
+  .flow-example { font-size: var(--type-body-compact); line-height: 1.55; }
+  .sim-description { font-size: var(--type-body-compact); line-height: 1.55; }
+  .sim-decision b { font-size: var(--type-caption); }
+  .sim-decision small, .sim-note { font-size: var(--type-meta); line-height: 1.5; }
+  .text-action { font-size: var(--type-caption); }
+  .logic-foot { font-size: var(--type-meta); line-height: 1.55; }
+  .logic-foot-icon { width: 20px; height: 20px; font-size: 11px; }
+
+  .arch-number { font-size: var(--type-meta); }
+  .architecture-node h3 { font-size: var(--type-caption); }
+  .architecture-node p { font-size: var(--type-meta); line-height: 1.5; }
+  .iot-note p { font-size: var(--type-body-compact); line-height: 1.55; }
+  .iot-path { font-size: var(--type-meta); letter-spacing: .07em; }
+
+  .benefit-tag { font-size: var(--type-meta); letter-spacing: .08em; }
+  .benefit-card h3 { font-size: clamp(17px, 1.3vw, 20px); letter-spacing: -.02em; }
+  .benefit-card p { font-size: var(--type-body-compact); line-height: 1.55; }
+  .benefit-ribbon { font-size: var(--type-meta); letter-spacing: .08em; }
+
+  .conclusion-lead { font-size: var(--type-body); line-height: 1.6; }
+  .conclusion-points > div > span { font-size: var(--type-meta); }
+  .conclusion-points p { font-size: var(--type-body-compact); line-height: 1.55; }
+  .thanks-line { font-size: var(--type-meta); letter-spacing: .08em; }
+  .visual-coordinate { font-size: var(--type-meta); }
+  .visual-coordinate span { font-size: 10px; letter-spacing: .07em; }
+  .conclusion-tag { font-size: 10px; letter-spacing: .06em; }
+  .conclusion-quote { font-size: var(--type-caption); line-height: 1.5; }
+
+  .apa-stamp span, .apa-stamp small { font-size: var(--type-meta); letter-spacing: .08em; }
+  .reference p { font-size: var(--type-caption); line-height: 1.5; }
+  .reference a { font-size: var(--type-meta); line-height: 1.45; }
+  .sources-footer, .sources-footer span:last-child { font-size: var(--type-meta); line-height: 1.5; }
+  .nav-brand { font-size: 10px; }
+  .slide-counter { font-size: 11px; }
+}
+
+@media screen and (max-width: 900px) {
+  .sensor-card-head { grid-template-columns: minmax(100px, 118px) minmax(0, 1fr); gap: 12px; }
+  .sensor-photo-frame { height: clamp(144px, 17vh, 164px); min-height: 144px; }
+}
+
+@media screen and (max-width: 700px) {
+  .cover-art-wrap { min-height: 250px; }
+  .cover-art { width: min(100%, 490px); max-height: min(310px, 42svh); }
+  .sensor-card-head { grid-template-columns: minmax(100px, 108px) minmax(0, 1fr); gap: 12px; min-height: 144px; }
+  .sensor-photo-frame { height: 144px; min-height: 144px; }
+  .section-deck { font-size: var(--type-body-compact); }
+  .flow-step b { font-size: var(--type-caption); }
+  .flow-step small { font-size: var(--type-meta); }
+  .architecture-node h3 { font-size: var(--type-caption); }
+  .architecture-node p { font-size: var(--type-meta); }
+  .iot-path { font-size: var(--type-meta); }
+  .benefit-card h3 { font-size: 17px; }
+  .benefit-card p { font-size: var(--type-body-compact); }
+  .conclusion-lead { font-size: var(--type-body-compact); }
+  .reference p { font-size: var(--type-caption); }
+  .reference a { font-size: var(--type-meta); }
+  .slide-counter { font-size: 10px; }
+}
