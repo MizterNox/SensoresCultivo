@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081510">
+  <meta name="description" content="Presentación educativa sobre sensores integrables con Arduino para monitorear las condiciones de un cultivo.">
+  <title>Sensores para monitorear un cultivo · Arduino + IoT</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="presentation" aria-label="Presentación: sensores integrables con Arduino para monitorear un cultivo">
+    <div class="stage" id="stage">
+      <!-- 01 · PORTADA -->
+      <section class="slide slide--cover is-active" id="slide-1" aria-label="Diapositiva 1 de 9: Portada" aria-hidden="false" tabindex="-1">
+        <div class="cover-orbit cover-orbit--one" aria-hidden="true"></div>
+        <div class="cover-orbit cover-orbit--two" aria-hidden="true"></div>
+        <div class="content-frame cover-layout">
+          <div class="cover-copy">
+            <div class="eyebrow eyebrow--light"><span class="live-dot"></span> Agricultura · tecnología · IoT</div>
+            <p class="cover-edition">GRUPO 05 <span>/</span> SEMESTRE V</p>
+            <h1>Sensores para<br>leer el <em>cultivo.</em></h1>
+            <p class="cover-subtitle">Sensores integrables con Arduino para monitorear las condiciones de un cultivo.</p>
+
+            <div class="cover-course">
+              <span class="micro-label">CURSO</span>
+              <p>Seminario de Complementación Práctica II<br><span>(Diseño y Desarrollo de Soluciones IoT)</span></p>
+            </div>
+
+            <div class="cover-team">
+              <span class="micro-label">INTEGRANTES</span>
+              <ul>
+                <li>Rojas Coronado Luz Daniela</li>
+                <li>Carlos Rojas Leticia Ivett</li>
+                <li>Valerio Lopez Jared Peter</li>
+              </ul>
+            </div>
+            <p class="cover-career"><span class="micro-label">CARRERA</span> Ingeniería de Software con Inteligencia Artificial</p>
+          </div>
+
+          <div class="cover-art-wrap">
+            <div class="art-orbit-label art-orbit-label--top"><span class="orbit-pulse"></span> DATOS EN TIEMPO REAL</div>
+            <img class="cover-art" src="img/hero-farm.svg" alt="Ilustración de un cultivo conectado a sensores y una placa Arduino que transmite datos por Wi-Fi" width="760" height="640">
+            <div class="art-float art-float--soil"><span class="mini-wave" aria-hidden="true">≈</span><span><b>HUMEDAD</b><small>lectura del suelo</small></span><strong>68<span>%</span></strong></div>
+            <div class="art-float art-float--air"><span class="air-sun" aria-hidden="true">☼</span><span><b>AMBIENTE</b><small>luz + temperatura</small></span><i class="signal-bars" aria-hidden="true"><i></i><i></i><i></i></i></div>
+            <div class="art-caption"><span class="caption-line"></span> DEL SENSOR A UNA DECISIÓN</div>
+          </div>
+        </div>
+        <div class="cover-bottom-note"><span>PROYECTO ACADÉMICO</span><span>EXPLORA CON <kbd>→</kbd></span></div>
+      </section>
+
+      <!-- 02 · INTRODUCCIÓN -->
+      <section class="slide slide--intro slide--light" id="slide-2" aria-label="Diapositiva 2 de 9: Introducción al monitoreo de cultivos" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame intro-layout">
+          <div class="intro-copy">
+            <div class="eyebrow"><span class="eyebrow-number">02</span> EL CULTIVO, EN CONTEXTO</div>
+            <h2>¿Qué pasa<br>bajo las hojas?</h2>
+            <p class="lead">Monitorear un cultivo es observar sus condiciones en el tiempo, no depender de una sola impresión.</p>
+            <p class="body-copy">Con sensores, Arduino puede leer señales del suelo y del ambiente, ordenarlas y mostrar cambios para apoyar una decisión oportuna.</p>
+            <div class="intro-callout"><span class="callout-icon" aria-hidden="true">↗</span><span>Un dato aislado orienta.<br><strong>Una tendencia ayuda a decidir.</strong></span></div>
+            <div class="intro-footnote">Arduino interpreta la señal; la calibración y el criterio del cultivo siguen siendo importantes (<a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino">Arduino, 2025</a>).</div>
+          </div>
+
+          <div class="field-panel" aria-label="Ejemplos de condiciones que pueden observarse">
+            <div class="field-panel-top"><div><span class="micro-label">LECTURAS DE UN CULTIVO</span><h3>Lo invisible<br>se vuelve dato.</h3></div><span class="panel-live"><span></span> EN LÍNEA</span></div>
+            <div class="field-plot" aria-hidden="true">
+              <div class="plot-grid"></div>
+              <svg class="plot-chart" viewBox="0 0 560 210" preserveAspectRatio="none">
+                <defs><linearGradient id="plotFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9bdc76" stop-opacity=".28"/><stop offset="1" stop-color="#9bdc76" stop-opacity="0"/></linearGradient></defs>
+                <path class="chart-area" d="M0,162 C48,150 63,122 105,130 S166,160 206,112 S270,92 306,108 S364,122 401,71 S470,80 500,50 S540,57 560,25 L560,210 L0,210Z"/>
+                <path class="chart-line" d="M0,162 C48,150 63,122 105,130 S166,160 206,112 S270,92 306,108 S364,122 401,71 S470,80 500,50 S540,57 560,25"/>
+                <circle cx="401" cy="71" r="5"/><circle cx="560" cy="25" r="5"/>
+              </svg>
+              <div class="plot-tooltip"><span>HUMEDAD</span><strong>variación</strong><small>durante el día</small></div>
+              <div class="plot-axis plot-axis--y"><span>alta</span><span>baja</span></div>
+              <div class="plot-axis plot-axis--x"><span>06:00</span><span>12:00</span><span>18:00</span></div>
+            </div>
+            <div class="signal-row">
+              <div class="signal-item"><span class="signal-icon signal-icon--soil" aria-hidden="true">◒</span><span><b>Suelo</b><small>humedad · pH · temperatura</small></span></div>
+              <div class="signal-item"><span class="signal-icon signal-icon--air" aria-hidden="true">◉</span><span><b>Ambiente</b><small>humedad · luz · lluvia</small></span></div>
+            </div>
+            <div class="panel-foot"><span>OBSERVAR</span><span class="panel-foot-line"></span><span>COMPRENDER</span><span class="panel-foot-line"></span><span>ACTUAR</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 · SENSORES DE SUELO -->
+      <section class="slide slide--sensors slide--light" id="slide-3" aria-label="Diapositiva 3 de 9: Sensores del suelo" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame">
+          <div class="section-heading section-heading--row">
+            <div><div class="eyebrow"><span class="eyebrow-number">03</span> SENSORES · ZONA RADICULAR</div><h2>El suelo cuenta<br>su parte.</h2></div>
+            <p class="section-deck">Tres mediciones para entender mejor el entorno de las raíces.</p>
+          </div>
+
+          <div class="sensor-grid">
+            <article class="sensor-card sensor-card--green">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5C18 14 11 21 11 29a13 13 0 0 0 26 0c0-8-7-15-13-24Z"/><path d="M17 30c0 4 3 7 7 7M7 43h34M10 39l-3 4m31-4 3 4"/></svg></span><span class="sensor-index">SENSOR 01</span></div>
+              <h3>Humedad del suelo</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Agua en el sustrato<br><em>lectura relativa</em></strong></div>
+              <p><b>¿Para qué?</b> Estimar si la zona de raíces se está secando y orientar el riego.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Lectura baja → revisar si hace falta regar.</span></div>
+              <div class="sensor-card-foot"><span>Capacitivo · analógico A0</span><a class="citation-link" href="#ref-seeed-moisture" data-reference="ref-seeed-moisture" aria-label="Ver fuente: Seeed Studio">(Seeed Studio, s. f.-a)</a><a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino">(Arduino, 2025)</a></div>
+              <div class="calibration-note"><span>!</span> Calibra en tu suelo: el valor no es un porcentaje universal.</div>
+            </article>
+
+            <article class="sensor-card sensor-card--amber">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6v6m0 24v6M6 24h6m24 0h6M11 11l4 4m18 18 4 4m0-26-4 4m-18 18-4 4"/><circle cx="24" cy="24" r="11"/><path d="M20 27c1.6 1.5 6.4 1.5 8 0m-7-7h.01M27 20h.01"/></svg></span><span class="sensor-index">SENSOR 02</span></div>
+              <h3>pH del suelo</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Acidez / alcalinidad<br><em>pH de una muestra líquida</em></strong></div>
+              <p><b>¿Para qué?</b> Orientar la evaluación de la disponibilidad de nutrientes; no indica por sí solo la fertilidad.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Medir un extracto suelo‑agua antes de ajustar el sustrato.</span></div>
+              <div class="sensor-card-foot"><span>Sonda + acondicionador · A1</span><a class="citation-link" href="#ref-dfrobot-ph" data-reference="ref-dfrobot-ph" aria-label="Ver fuente: DFRobot">(DFRobot, s. f.)</a></div>
+              <div class="calibration-note"><span>!</span> Usa muestra líquida y calibra con soluciones patrón.</div>
+            </article>
+
+            <article class="sensor-card sensor-card--blue">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 5v7m0 24v7M12 12l5 5m14 14 5 5m0-24-5 5m-14 14-5 5"/><circle cx="24" cy="25" r="10"/><path d="M24 20v6l4 3M9 43h30"/></svg></span><span class="sensor-index">SENSOR 03</span></div>
+              <h3>Temperatura del suelo</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Temperatura<br><em>°C en zona radicular</em></strong></div>
+              <p><b>¿Para qué?</b> Detectar cambios térmicos que pueden afectar el entorno de las raíces.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar una subida inusual y generar una alerta.</span></div>
+              <div class="sensor-card-foot"><span>DS18B20 encapsulado · 1‑Wire</span><a class="citation-link" href="#ref-ds18b20" data-reference="ref-ds18b20" aria-label="Ver fuente: Analog Devices">(Analog Devices, s. f.)</a></div>
+              <div class="calibration-note"><span>i</span> Sensor digital: Arduino recibe el dato por un bus de un cable.</div>
+            </article>
+          </div>
+          <p class="slide-source-line">La humedad capacitiva entrega una lectura que requiere interpretación y calibración local (<a class="citation-link" href="#ref-seeed-moisture" data-reference="ref-seeed-moisture" aria-label="Ver fuente: Seeed Studio">Seeed Studio, s. f.-a</a>).</p>
+        </div>
+      </section>
+
+      <!-- 04 · SENSORES AMBIENTALES -->
+      <section class="slide slide--sensors slide--light" id="slide-4" aria-label="Diapositiva 4 de 9: Sensores ambientales" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame">
+          <div class="section-heading section-heading--row">
+            <div><div class="eyebrow"><span class="eyebrow-number">04</span> SENSORES · AMBIENTE</div><h2>El entorno también<br>da señales.</h2></div>
+            <p class="section-deck">Aire, luz y lluvia completan la lectura de lo que vive la planta.</p>
+          </div>
+
+          <div class="sensor-grid">
+            <article class="sensor-card sensor-card--blue">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 27a14 14 0 0 1 27-4 9 9 0 0 1-1 18H14a7 7 0 0 1-4-14Z"/><path d="m18 30-2 5m10-5-2 5m10-5-2 5"/></svg></span><span class="sensor-index">SENSOR 04</span></div>
+              <h3>Humedad ambiental</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Humedad relativa<br><em>% HR y temperatura del aire</em></strong></div>
+              <p><b>¿Para qué?</b> Entender el microclima y vigilar periodos de humedad alta.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Aviso para revisar ventilación en un invernadero.</span></div>
+              <div class="sensor-card-foot"><span>DHT22 · pin digital</span><a class="citation-link" href="#ref-adafruit-dht" data-reference="ref-adafruit-dht" aria-label="Ver fuente: Adafruit">(Adafruit, 2024b)</a></div>
+              <div class="calibration-note"><span>i</span> Colócalo a la sombra, protegido del agua directa.</div>
+            </article>
+
+            <article class="sensor-card sensor-card--amber">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="8"/><path d="M24 4v7m0 26v7M4 24h7m26 0h7M10 10l5 5m18 18 5 5m0-28-5 5m-18 18-5 5"/><path d="m18 26 4-4 4 3 4-6"/></svg></span><span class="sensor-index">SENSOR 05</span></div>
+              <h3>Luminosidad</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Iluminancia<br><em>lux (lx)</em></strong></div>
+              <p><b>¿Para qué?</b> Comparar la luz disponible y detectar zonas con sombra.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Comparar lecturas entre mañana y mediodía.</span></div>
+              <div class="sensor-card-foot"><span>BH1750 · I²C digital</span><a class="citation-link" href="#ref-adafruit-bh1750" data-reference="ref-adafruit-bh1750" aria-label="Ver fuente: Adafruit">(Adafruit, 2024a)</a></div>
+              <div class="calibration-note"><span>!</span> Lux orienta; para luz fotosintética se mide PAR/PPFD.</div>
+            </article>
+
+            <article class="sensor-card sensor-card--green">
+              <div class="sensor-card-top"><span class="sensor-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6c-5 8-11 14-11 22a11 11 0 0 0 22 0c0-8-6-14-11-22Z"/><path d="M8 40h32M12 36l-4 4m28-4 4 4m-21-9 2 2m9-2-2 2"/></svg></span><span class="sensor-index">SENSOR 06</span></div>
+              <h3>Lluvia / mojado</h3>
+              <div class="measure-row"><span>VARIABLE</span><strong>Presencia de gotas<br><em>seco / mojado</em></strong></div>
+              <p><b>¿Para qué?</b> Detectar lluvia o superficie húmeda en el cultivo.</p>
+              <div class="example-row"><span class="example-mark">↳</span><span><b>Ejemplo</b> Registrar lluvia y reconsiderar el riego.</span></div>
+              <div class="sensor-card-foot"><span>Placa de lluvia · según módulo</span><a class="citation-link" href="#ref-seeed-water" data-reference="ref-seeed-water" aria-label="Ver fuente: Seeed Studio">(Seeed Studio, s. f.-b)</a></div>
+              <div class="calibration-note"><span>!</span> Una placa de gotas detecta mojado; no mide mm de lluvia.</div>
+            </article>
+          </div>
+          <p class="slide-source-line">Arduino convierte la tensión de una entrada analógica en una lectura digital; el rango depende de la placa (<a class="citation-link" href="#ref-arduino" data-reference="ref-arduino" aria-label="Ver fuente: Arduino">Arduino, 2025</a>).</p>
+        </div>
+      </section>
+
+      <!-- 05 · FLUJO DE FUNCIONAMIENTO -->
+      <section class="slide slide--logic slide--dark" id="slide-5" aria-label="Diapositiva 5 de 9: Cómo funciona el sistema" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame">
+          <div class="section-heading section-heading--row section-heading--dark">
+            <div><div class="eyebrow eyebrow--light"><span class="eyebrow-number">05</span> DEL SENSOR A LA ACCIÓN</div><h2>Un dato solo sirve<br>si guía una decisión.</h2></div>
+            <p class="section-deck">Arduino lee señales, aplica una regla y comunica qué conviene revisar.</p>
+          </div>
+
+          <div class="logic-layout">
+            <div class="flow-panel">
+              <div class="flow-line" aria-hidden="true"><span></span></div>
+              <div class="flow-step flow-step--sensor"><span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M18 4c-4 6-9 11-9 17a9 9 0 0 0 18 0c0-6-5-11-9-17Z"/><path d="M14 23c0 3 2 5 5 5"/></svg></span><span class="step-number">01</span><b>Sensor</b><small>mide el suelo</small></div>
+              <span class="flow-arrow" aria-hidden="true">›</span>
+              <div class="flow-step flow-step--board"><span class="flow-icon flow-icon--board" aria-hidden="true"><svg viewBox="0 0 36 36"><rect x="6" y="8" width="24" height="20" rx="4"/><rect x="13" y="13" width="10" height="10" rx="1"/><path d="M10 5v3m6-3v3m6-3v3m6-3v3M10 28v3m6-3v3m6-3v3m6-3v3"/></svg></span><span class="step-number">02</span><b>Arduino</b><small>lee la señal</small></div>
+              <span class="flow-arrow" aria-hidden="true">›</span>
+              <div class="flow-step flow-step--rule"><span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M8 18h7l4-8 5 16 4-8h3"/><path d="M5 6h26v24H5z"/></svg></span><span class="step-number">03</span><b>Procesa</b><small>aplica un umbral</small></div>
+              <span class="flow-arrow" aria-hidden="true">›</span>
+              <div class="flow-step flow-step--screen"><span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><rect x="5" y="6" width="26" height="20" rx="3"/><path d="M12 31h12m-6-5v5m-7-14 5-4 4 3 6-6"/></svg></span><span class="step-number">04</span><b>Visualiza</b><small>panel o alerta</small></div>
+              <span class="flow-arrow" aria-hidden="true">›</span>
+              <div class="flow-step flow-step--action"><span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M8 22a10 10 0 0 1 20 0v6H8zM13 22v-4m10 4v-4M18 6v5m-9 0 4 4m14-4-4 4"/><path d="M13 31h10"/></svg></span><span class="step-number">05</span><b>Actúa</b><small>riego / aviso</small></div>
+              <div class="flow-example"><span class="flow-example-tag">EJEMPLO</span><span>Humedad baja <b>→</b> Arduino detecta suelo seco <b>→</b> sugiere activar el riego.</span></div>
+            </div>
+
+            <aside class="simulator" aria-labelledby="sim-title">
+              <div class="sim-top"><span class="sim-label"><span></span> SIMULADOR</span><span class="sim-mode">SIN SENSOR REAL</span></div>
+              <h3 id="sim-title">Prueba una regla.</h3>
+              <p class="sim-description">Mueve la lectura para ver cuándo se genera una recomendación.</p>
+              <div class="sim-reading"><span>HUMEDAD RELATIVA<br>DE EJEMPLO</span><div><strong id="moisture-value">62</strong><small>%</small></div></div>
+              <div class="gauge-wrap">
+                <div class="gauge-track"><span class="gauge-fill" id="gauge-fill" style="--level:62%"></span><span class="gauge-threshold" aria-hidden="true"></span></div>
+                <div class="gauge-labels"><span>0 · seco</span><span>35 · umbral</span><span>100</span></div>
+              </div>
+              <label class="sr-only" for="moisture-slider">Ajustar humedad relativa ilustrativa del suelo</label>
+              <input class="moisture-slider" id="moisture-slider" type="range" min="0" max="100" value="62" aria-describedby="sim-decision">
+              <div class="sim-decision" id="sim-decision" role="status" aria-live="polite"><span class="decision-icon" id="decision-icon">✓</span><span><b id="decision-title">Condición estable</b><small id="decision-copy">Sin riego sugerido por ahora.</small></span></div>
+              <div class="sim-actions"><button class="text-action" type="button" data-sim-value="22">Simular suelo seco <span>↗</span></button><button class="text-action" type="button" data-sim-value="72">Restablecer</button></div>
+              <p class="sim-note">Valores normalizados e ilustrativos; el umbral real se calibra para cada cultivo.</p>
+            </aside>
+          </div>
+          <div class="logic-foot"><span class="logic-foot-icon" aria-hidden="true">i</span> Una bomba requiere un módulo de potencia/relé adecuado; nunca se conecta directamente a un pin de Arduino.</div>
+        </div>
+      </section>
+
+      <!-- 06 · ARQUITECTURA IoT -->
+      <section class="slide slide--iot slide--light" id="slide-6" aria-label="Diapositiva 6 de 9: Ejemplo de arquitectura IoT" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame">
+          <div class="section-heading section-heading--row">
+            <div><div class="eyebrow"><span class="eyebrow-number">06</span> UN SISTEMA IoT SENCILLO</div><h2>De la parcela<br>a la pantalla.</h2></div>
+            <p class="section-deck">La conectividad lleva las lecturas a una aplicación para revisarlas a distancia.</p>
+          </div>
+
+          <div class="architecture" aria-label="Flujo de datos: cultivo, sensores, Arduino, comunicación, aplicación y decisión">
+            <article class="architecture-node architecture-node--field"><span class="arch-number">01</span><span class="arch-icon" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M8 44c9-4 27-4 36 0M15 40V24m11 16V16m11 24V25"/><path d="M15 29c-9 0-11-7-11-12 8 0 12 3 12 10m10-4c0-9 5-13 13-13 0 8-4 13-13 13Zm11 9c0-7 5-11 12-11 0 7-4 12-12 12Z"/><path d="M8 44h36"/></svg></span><h3>Cultivo</h3><p>La zona que<br>se observa</p></article>
+              <span class="arch-connector" aria-hidden="true"><i></i></span>
+              <article class="architecture-node architecture-node--sensors"><span class="arch-number">02</span><span class="arch-icon" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M12 42V17m14 25V9m14 33V19"/><circle cx="12" cy="13" r="4"/><circle cx="26" cy="6" r="3"/><path d="M38 14a5 5 0 1 0-5-5m0 0v7m-9-7v15m-12-7v9"/></svg></span><h3>Sensores</h3><p>Suelo +<br>ambiente</p></article>
+              <span class="arch-connector" aria-hidden="true"><i></i></span>
+              <article class="architecture-node architecture-node--arduino"><span class="arch-number">03</span><span class="arch-icon arch-icon--board" aria-hidden="true"><svg viewBox="0 0 52 52"><rect x="7" y="10" width="38" height="32" rx="6"/><rect x="19" y="18" width="14" height="13" rx="2"/><path d="M14 6v4m8-4v4m8-4v4m8-4v4M14 42v4m8-4v4m8-4v4m8-4v4"/><circle cx="13" cy="18" r="1"/><circle cx="39" cy="34" r="2"/></svg></span><h3>Arduino</h3><p>Lee y ordena<br>los datos</p></article>
+              <span class="arch-connector arch-connector--wifi" aria-hidden="true"><i></i></span>
+              <article class="architecture-node architecture-node--connect"><span class="arch-number">04</span><span class="arch-icon" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M6 20a29 29 0 0 1 40 0M13 27a19 19 0 0 1 26 0m-19 7a9 9 0 0 1 12 0"/><circle cx="26" cy="41" r="2.5"/><path d="M26 28v9"/></svg></span><h3>Comunicación</h3><p>Wi‑Fi, si<br>se requiere</p></article>
+              <span class="arch-connector" aria-hidden="true"><i></i></span>
+              <article class="architecture-node architecture-node--app"><span class="arch-number">05</span><span class="arch-icon" aria-hidden="true"><svg viewBox="0 0 52 52"><rect x="8" y="7" width="36" height="38" rx="5"/><path d="M16 16h20M16 23h10m-10 8 6 5 12-13"/></svg></span><h3>App / panel</h3><p>Gráficas y<br>notificaciones</p></article>
+              <span class="arch-connector" aria-hidden="true"><i></i></span>
+              <article class="architecture-node architecture-node--decision"><span class="arch-number">06</span><span class="arch-icon" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M26 6v7m0 26v7M13 13l5 5m16 16 5 5m0-26-5 5M18 34l-5 5"/><circle cx="26" cy="27" r="11"/><path d="m21 27 4 4 7-8"/></svg></span><h3>Decisión</h3><p>Monitorear<br>y responder</p></article>
+            </div>
+
+            <div class="iot-notes">
+              <div class="iot-note"><span class="iot-note-icon" aria-hidden="true">⌁</span><p><b>Para enviar datos:</b> el UNO R3 no incluye Wi‑Fi (<a class="citation-link" href="#ref-arduino-uno" data-reference="ref-arduino-uno" aria-label="Ver fuente: Arduino UNO R3">Arduino, s. f.</a>); puedes añadir un módulo o usar una placa con conectividad, como ESP32 (<a class="citation-link" href="#ref-espressif" data-reference="ref-espressif" aria-label="Ver fuente: Espressif Systems">Espressif Systems, s. f.</a>).</p></div>
+              <div class="iot-note iot-note--warm"><span class="iot-note-icon" aria-hidden="true">↯</span><p><b>Para automatizar:</b> una salida puede controlar un relé adecuado; la decisión también puede ser solo una alerta.</p></div>
+            </div>
+            <div class="iot-path"><span>CULTIVO</span><i></i><span>LECTURA LOCAL</span><i></i><span>RED</span><i></i><span>DECISIÓN INFORMADA</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 · BENEFICIOS -->
+      <section class="slide slide--benefits slide--dark" id="slide-7" aria-label="Diapositiva 7 de 9: Beneficios del monitoreo" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame">
+          <div class="section-heading section-heading--row section-heading--dark">
+            <div><div class="eyebrow eyebrow--light"><span class="eyebrow-number">07</span> ¿QUÉ APORTA?</div><h2>Menos suposiciones.<br>Más contexto.</h2></div>
+            <p class="section-deck">La tecnología apoya el seguimiento: no sustituye la observación del cultivo.</p>
+          </div>
+
+          <div class="benefit-grid">
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--lime" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 4c-5 7-10 13-10 20a10 10 0 0 0 20 0c0-7-5-13-10-20Z"/><path d="M15 25c0 3 2 5 5 5m-7 6h14"/></svg></span><div><span class="benefit-tag">01 / AGUA</span><h3>Optimiza el riego</h3><p>Riega con una lectura del suelo, no solo por calendario.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--mint" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14"/><path d="M20 11v9l6 4M20 3v4m17 13h-4M7 20H3"/></svg></span><div><span class="benefit-tag">02 / TIEMPO</span><h3>Monitoreo constante</h3><p>Observa patrones y cambios a lo largo del día.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--coral" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 5 34 30H6L20 5Z"/><path d="M20 15v7m0 4v.1"/></svg></span><div><span class="benefit-tag">03 / PREVENCIÓN</span><h3>Detecta cambios</h3><p>Una alerta temprana permite revisar antes de actuar.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--blue" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 8h22v25H9zM14 27l5-6 4 3 5-8"/><path d="M13 13h4"/></svg></span><div><span class="benefit-tag">04 / REGISTRO</span><h3>Mejor seguimiento</h3><p>Compara lecturas para entender cómo evoluciona el cultivo.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--mint" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 20h26M20 7v26M11 11l18 18m0-18L11 29"/><circle cx="20" cy="20" r="5"/></svg></span><div><span class="benefit-tag">05 / CONTROL</span><h3>Más variables en conjunto</h3><p>Relaciona el agua del suelo con el calor, la luz o la lluvia.</p></div></article>
+            <article class="benefit-card"><span class="benefit-icon benefit-icon--lime" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="7" y="11" width="16" height="18" rx="3"/><path d="M11 7v4m8-4v4m4 5h5a5 5 0 0 1 0 10h-5m-12-3h6"/><circle cx="13" cy="20" r="1"/></svg></span><div><span class="benefit-tag">06 / RESPUESTA</span><h3>Automatiza por etapas</h3><p>Empieza con avisos; añade actuadores cuando el sistema esté probado.</p></div></article>
+          </div>
+          <div class="benefit-ribbon"><span class="ribbon-dot"></span><span>BUENA MEDICIÓN = SENSOR ADECUADO + UBICACIÓN + CALIBRACIÓN</span><span class="ribbon-dot"></span></div>
+        </div>
+      </section>
+
+      <!-- 08 · CONCLUSIÓN -->
+      <section class="slide slide--conclusion slide--light" id="slide-8" aria-label="Diapositiva 8 de 9: Conclusiones" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame conclusion-layout">
+          <div class="conclusion-copy">
+            <div class="eyebrow"><span class="eyebrow-number">08</span> PARA CERRAR</div>
+            <h2>Medir para<br><em>comprender.</em><br>Comprender para<br><em>decidir.</em></h2>
+            <p class="conclusion-lead">Arduino conecta sensores con decisiones prácticas para observar mejor las condiciones del cultivo.</p>
+            <div class="conclusion-points">
+              <div><span>01</span><p>Elige el sensor según la pregunta que necesitas responder.</p></div>
+              <div><span>02</span><p>Calibra y combina datos del suelo con los del ambiente.</p></div>
+              <div><span>03</span><p>Empieza con monitoreo; automatiza de forma segura y gradual.</p></div>
+            </div>
+            <div class="thanks-line"><span>GRACIAS</span><i></i><span>GRUPO 05 · SEMESTRE V</span></div>
+          </div>
+          <div class="conclusion-visual" aria-hidden="true">
+            <div class="conclusion-ring conclusion-ring--outer"></div><div class="conclusion-ring conclusion-ring--inner"></div>
+            <div class="conclusion-plant"><svg viewBox="0 0 300 370"><path class="plant-stem" d="M150 344c-3-70 8-115 1-183-3-31-1-65 4-101"/><path class="plant-leaf plant-leaf--left" d="M151 215c-64 2-94-31-95-91 57 0 88 23 95 91Z"/><path class="plant-leaf plant-leaf--right" d="M153 161c11-57 44-79 94-72-9 52-39 77-94 72Z"/><path class="plant-leaf plant-leaf--left" d="M151 283c-44-1-67-24-69-66 40 0 64 19 69 66Z"/><path class="plant-leaf plant-leaf--right" d="M154 234c7-43 32-62 71-58-6 39-28 60-71 58Z"/><path class="plant-leaf plant-leaf--top" d="M155 80c-30-26-28-57 1-80 29 23 31 55-1 80Z"/><path class="plant-vein" d="M151 213 78 135m76 27 62-58m-65 179-50-56m52 34 44-40m-43-146V8"/></svg></div>
+            <div class="visual-coordinate coordinate--one">01 <span>OBSERVAR</span></div><div class="visual-coordinate coordinate--two">02 <span>INTERPRETAR</span></div><div class="visual-coordinate coordinate--three">03 <span>ACTUAR</span></div>
+            <div class="conclusion-tag conclusion-tag--one"><span>⌁</span> SENSORES</div><div class="conclusion-tag conclusion-tag--two"><span>⌘</span> ARDUINO</div>
+            <div class="conclusion-quote">“La tecnología cobra sentido cuando mejora una decisión real.”</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 · FUENTES APA -->
+      <section class="slide slide--sources slide--light" id="slide-9" aria-label="Diapositiva 9 de 9: Fuentes bibliográficas en formato APA 7.ª edición" aria-hidden="true" tabindex="-1" inert>
+        <div class="content-frame sources-layout">
+          <div class="section-heading section-heading--row sources-heading">
+            <div><div class="eyebrow"><span class="eyebrow-number">09</span> FUENTES CONSULTADAS</div><h2>Documentación<br>para profundizar.</h2></div>
+            <div class="apa-stamp"><span>REFERENCIAS</span><strong>APA</strong><small>7.ª EDICIÓN</small></div>
+          </div>
+
+          <ul class="references-grid">
+            <li class="reference" id="ref-adafruit-bh1750"><div><p>Adafruit. (2024a, 8 de marzo). <i>Adafruit BH1750 ambient light sensor</i>.</p><a href="https://learn.adafruit.com/adafruit-bh1750-ambient-light-sensor/overview" target="_blank" rel="noopener noreferrer">https://learn.adafruit.com/adafruit-bh1750-ambient-light-sensor/overview</a></div></li>
+            <li class="reference" id="ref-adafruit-dht"><div><p>Adafruit. (2024b, 8 de marzo). <i>DHT11, DHT22 and AM2302 sensors</i>.</p><a href="https://learn.adafruit.com/dht" target="_blank" rel="noopener noreferrer">https://learn.adafruit.com/dht</a></div></li>
+            <li class="reference" id="ref-ds18b20"><div><p>Analog Devices. (s. f.). <i>DS18B20: Programmable resolution 1-Wire digital thermometer</i> [Hoja de datos].</p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf" target="_blank" rel="noopener noreferrer">https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf</a></div></li>
+            <li class="reference" id="ref-arduino-uno"><div><p>Arduino. (s. f.). <i>UNO R3</i>.</p><a href="https://docs.arduino.cc/hardware/uno-rev3/" target="_blank" rel="noopener noreferrer">https://docs.arduino.cc/hardware/uno-rev3/</a></div></li>
+            <li class="reference" id="ref-arduino"><div><p>Arduino. (2025, 9 de mayo). <i>analogRead()</i>.</p><a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/" target="_blank" rel="noopener noreferrer">https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/</a></div></li>
+            <li class="reference" id="ref-dfrobot-ph"><div><p>DFRobot. (s. f.). <i>Gravity: Analog pH Sensor V2 (SEN0161-V2)</i>.</p><a href="https://wiki.dfrobot.com/sen0161-v2" target="_blank" rel="noopener noreferrer">https://wiki.dfrobot.com/sen0161-v2</a></div></li>
+            <li class="reference" id="ref-espressif"><div><p>Espressif Systems. (s. f.). <i>Get started—ESP32</i>. ESP-IDF Programming Guide. Recuperado el 3 de octubre de 2026, de</p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html" target="_blank" rel="noopener noreferrer">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html</a></div></li>
+            <li class="reference" id="ref-seeed-moisture"><div><p>Seeed Studio. (s. f.-a). <i>Grove—Capacitive Moisture Sensor (Corrosion Resistant)</i>.</p><a href="https://wiki.seeedstudio.com/Grove-Capacitive_Moisture_Sensor-Corrosion-Resistant/" target="_blank" rel="noopener noreferrer">https://wiki.seeedstudio.com/Grove-Capacitive_Moisture_Sensor-Corrosion-Resistant/</a></div></li>
+            <li class="reference" id="ref-seeed-water"><div><p>Seeed Studio. (s. f.-b). <i>Grove—Water Sensor</i>.</p><a href="https://wiki.seeedstudio.com/Grove-Water_Sensor/" target="_blank" rel="noopener noreferrer">https://wiki.seeedstudio.com/Grove-Water_Sensor/</a></div></li>
+          </ul>
+          <div class="sources-footer"><span>Fuentes técnicas oficiales y documentación de fabricantes.</span><span>CONTENIDO EN ESPAÑOL · PRESENTACIÓN EDUCATIVA</span></div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="deck-controls" aria-label="Navegación de la presentación">
+      <div class="nav-brand" aria-label="Campo e IoT"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 23V12m0 5C5 17 4 12 4 8c5 0 9 2 9 9Zm0-5c0-5 3-8 8-8 0 5-3 8-8 8Z"/></svg></span><span>CAMPO <i>/</i> IoT</span></div>
+      <div class="deck-progress" aria-label="Progreso de la presentación">
+        <button class="progress-step is-current" type="button" data-go-to="0" aria-label="Ir a la diapositiva 1: Portada" aria-current="step"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="1" aria-label="Ir a la diapositiva 2: Introducción"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="2" aria-label="Ir a la diapositiva 3: Sensores del suelo"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="3" aria-label="Ir a la diapositiva 4: Sensores ambientales"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="4" aria-label="Ir a la diapositiva 5: Funcionamiento"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="5" aria-label="Ir a la diapositiva 6: Arquitectura IoT"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="6" aria-label="Ir a la diapositiva 7: Beneficios"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="7" aria-label="Ir a la diapositiva 8: Conclusiones"><span></span></button>
+        <button class="progress-step" type="button" data-go-to="8" aria-label="Ir a la diapositiva 9: Fuentes"><span></span></button>
+      </div>
+      <div class="nav-actions">
+        <span class="slide-counter" aria-live="polite"><span id="current-slide">01</span><i>/</i>09</span>
+        <button class="nav-button" id="prev-slide" type="button" aria-label="Diapositiva anterior" title="Anterior (←)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="nav-button nav-button--next" id="next-slide" type="button" aria-label="Diapositiva siguiente" title="Siguiente (→ o espacio)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        <button class="nav-button fullscreen-button" id="fullscreen-toggle" type="button" aria-label="Activar pantalla completa" title="Pantalla completa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></button>
+      </div>
+    </nav>
+    <p class="sr-only" id="keyboard-help">Usa las flechas izquierda y derecha o la barra espaciadora para cambiar de diapositiva. Inicio y Fin van a la primera y última.</p>
+  </main>
+</body>
+</html>
